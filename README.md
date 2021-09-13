@@ -1,7 +1,7 @@
 # Skylab-Project-UdeA-2022 🚀
 Proyecto oficial de desarrollo de software 
 
-# Objetivos :dart
+# Objetivos 🎯
 Se propone analizar, diseñar y construir una aplicación software que permita 
 controlar las ventas físicas y virtuales de una empresa de manufactura y hacerles 
 el correspondiente seguimiento.
@@ -22,14 +22,14 @@ _ScrumTeam_
  _las herramientas usadas para crear el proyecto_
 
 * [React JS]() - El framework web usado
-* [HTML 5 ]
-* [CSS3 ]
-* [Lenguaje JavaScript]
-* [Lenguaje TypeScript ]
-* [Java]
-* [Node Js]
-* [Plataformas de desarrollo para Backend (Node JS)]
-* [Stack MEAN / MERN]
-* [(JWT / Oatuh 2)]
-* [(Heroku)]
-* [(Git / GitHub)]
+* [HTML 5 ]()  - 
+* [CSS3 ]()
+* [Lenguaje JavaScript]()
+* [Lenguaje TypeScript ]()
+* [Java]()
+* [Node Js]()
+* [Plataformas de desarrollo para Backend (Node JS)]()
+* [Stack MEAN / MERN]()
+* [JWT / Oatuh 2]()
+* [Heroku]()
+* [Git / GitHub]()
