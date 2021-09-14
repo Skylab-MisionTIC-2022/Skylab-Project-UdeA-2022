@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Skylab-Project-UdeA-2022 🚀
 Proyecto desarrollo de software Mision TIC 2022
 
@@ -33,3 +34,15 @@ _ScrumTeam_
 * [JWT / Oatuh 2]()
 * [Heroku]()
 * [Git / GitHub]()
+=======
+# Skylab-Project-UdeA-2022
+Proyecto oficial de desarrollo de software 
+
+
+
+Holiii haciendo prueba  jijiji (hernan)
+
+esto es una prueba de commit rama development (juan vaquiro)
+
+este lo hice yo maria 
+>>>>>>> 2cfd3e8abaad100bb7b55796b550f3dddba88ad2
