@@ -1,5 +1,5 @@
 # Skylab-Project-UdeA-2022 🚀
-Proyecto oficial de desarrollo de software 
+Proyecto desarrollo de software Mision TIC 2022
 
 # Objetivos 🎯
 Se propone analizar, diseñar y construir una aplicación software que permita 
@@ -11,7 +11,7 @@ el correspondiente seguimiento.
 _ScrumTeam_
 
 * **Maria Eugenia Zapata** - *Analista* - [maeuza](https://github.com/maeuza)
-* **Paola Andrea Avella** - *Scrum Master* - [fulanitodetal](#fulanito-de-tal)
+* **Paola Andrea Avella** - *Scrum Master* - [paolaAndrea5]
 * **Andrés Camargo Ocasión** - *Product Owner* - [AndiCrop](https://github.com/AndiCrop)
 * **Hernán Darío Caicedo** - *Development* - [fulanitodetal](#fulanito-de-tal)
 * **Juan Vaquiro Daiz** - *Admin BD* - [JuanVaquiro](https://github.com/JuanVaquiro)
