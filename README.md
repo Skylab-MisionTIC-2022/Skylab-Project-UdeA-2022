@@ -34,6 +34,18 @@ _ScrumTeam_
 * [JWT / Oatuh 2]()
 * [Heroku]()
 * [Git / GitHub]()
+
+## Descripción desarrolladores 📑:
+
+* **Maria Eugenia Zapata:**
+
+* **Paola Andrea Avella:**
+
+* **Hernán Darío Caicedo:**
+
+* **Juan Vaquiro Daiz:**
+
+* **Freddy Andrés Camargo:** soy un bogotano de 29 años, profesional en Política y RR.II. con experiencia como consultor empresarial en asuntos corporativos (asesoría regulatoria, análisis de datos y relaciones públicas). Me he involucrado en el desarrollo de software a través de Misión TIC y me han fascinado las posibilidades que se abren para la creación de soluciones para empresas y para nuestras vidas. Quiero crear una aplicación móvil para el negocio de mi familia, como proyecto final de Misión TIC.
 =======
 # Skylab-Project-UdeA-2022
 Proyecto oficial de desarrollo de software 
