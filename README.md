@@ -12,6 +12,7 @@ _ScrumTeam_
 
 * **Juan Vaquiro Daiz** - *Admin BD* - [JuanVaquiro](https://github.com/JuanVaquiro)
 * **Paola Andrea Avella** - *Scrum Master* - [paolaAndrea5](https://github.com/paolaAndrea5)
+* **Maria Eugenia Zapata** - *Analista* - [maeuza](https://github.com/maeuza)
 
 ## Construido con 🛠️
 
@@ -23,12 +24,14 @@ _ScrumTeam_
 * [JavaScript ]()
 * [TypeScript ]()
 * [Java ]()
-
+* [Node Js]()
+* [Plataformas de desarrollo para Backend (Node JS)]()
+* [Stack MEAN / MERN]()
 
 
 # Descripción desarrolladores 📑:
 
-* **Maria Eugenia Zapata:**
+* **Maria Eugenia Zapata:**  Ingeniera de sistemas
 
 * **Paola Andrea Avella:** Ingeniera de sistemas con experiencia en analisis de requerimientos, mis intereses se enfocan hacia el desarrollo en Java.
 
