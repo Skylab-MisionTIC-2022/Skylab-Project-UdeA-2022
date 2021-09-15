@@ -11,7 +11,7 @@ el correspondiente seguimiento.
 _ScrumTeam_
 
 * **Juan Vaquiro Daiz** - *Admin BD* - [JuanVaquiro](https://github.com/JuanVaquiro)
-
+* **Paola Andrea Avella** - *Scrum Master* - [paolaAndrea5](https://github.com/paolaAndrea5)
 
 ## Construido con 🛠️
 
@@ -20,6 +20,9 @@ _ScrumTeam_
 * [React JS]()  
 * [HTML 5 ]()  
 * [CSS3 ]()
+* [JavaScript ]()
+* [TypeScript ]()
+* [Java ]()
 
 
 
@@ -27,7 +30,7 @@ _ScrumTeam_
 
 * **Maria Eugenia Zapata:**
 
-* **Paola Andrea Avella:**
+* **Paola Andrea Avella:** Ingeniera de sistemas con experiencia en analisis de requerimientos, mis intereses se enfocan hacia el desarrollo en Java.
 
 * **Hernán Darío Caicedo:**
 
