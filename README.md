@@ -45,3 +45,4 @@ _ScrumTeam_
 * **Juan Vaquiro Daiz:** Tecnico profesional en soluciones web, me gusta el mundo geek y los videojuegos. desarrollar las habilidades de programador y dominar el idioma ingles 
 
 * **Freddy Andrés Camargo:** soy un bogotano de 29 años, (si tuviera 18 estaría en ing. de sistemas :D) profesional en Política y RR.II. con experiencia como consultor empresarial en asuntos corporativos. Quiero crear una aplicación móvil para el negocio de mi familia.
+
