@@ -31,7 +31,7 @@ _ScrumTeam_
 
 # Descripción desarrolladores 📑:
 
-* **Maria Eugenia Zapata:**  Ingeniera de sistemas
+* **Maria Eugenia Zapata:**  Ingeniera de sistemas,docente, esperiencia en análisis y proyectos.
 
 * **Paola Andrea Avella:** Ingeniera de sistemas con experiencia en analisis de requerimientos, mis intereses se enfocan hacia el desarrollo en Java.
 
