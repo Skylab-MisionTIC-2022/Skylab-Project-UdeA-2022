@@ -13,6 +13,7 @@ _ScrumTeam_
 * **Juan Vaquiro Daiz** - *Admin BD* - [JuanVaquiro](https://github.com/JuanVaquiro)
 * **Paola Andrea Avella** - *Scrum Master* - [paolaAndrea5](https://github.com/paolaAndrea5)
 * **Maria Eugenia Zapata** - *Analista* - [maeuza](https://github.com/maeuza)
+* **Freddy Andrés Camargo** - *Product Owner* - [AndiCrop](https://github.com/AndiCrop)
 
 ## Construido con 🛠️
 
@@ -39,4 +40,4 @@ _ScrumTeam_
 
 * **Juan Vaquiro Daiz:** 
 
-* **Freddy Andrés Camargo:** 
+* **Freddy Andrés Camargo:** soy un bogotano de 29 años, (si tuviera 18 estaría en ing. de sistemas :D) profesional en Política y RR.II. con experiencia como consultor empresarial en asuntos corporativos. Quiero crear una aplicación móvil para el negocio de mi familia.
