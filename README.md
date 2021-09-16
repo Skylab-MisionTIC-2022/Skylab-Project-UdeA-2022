@@ -14,6 +14,7 @@ _ScrumTeam_
 * **Paola Andrea Avella** - *Scrum Master* - [paolaAndrea5](https://github.com/paolaAndrea5)
 * **Maria Eugenia Zapata** - *Analista* - [maeuza](https://github.com/maeuza)
 * **Freddy Andrés Camargo** - *Product Owner* - [AndiCrop](https://github.com/AndiCrop)
+* **Hernán Darío Caicedo** - *Development* - [DarioCaicedoS](https://github.com/DarioCaicedoS)
 
 ## Construido con 🛠️
 
@@ -28,6 +29,9 @@ _ScrumTeam_
 * [Node Js]()
 * [Plataformas de desarrollo para Backend (Node JS)]()
 * [Stack MEAN / MERN]()
+* [JWT / Oatuh 2]()
+* [Heroku]()
+* [Git / GitHub]()
 
 
 # Descripción desarrolladores 📑:
@@ -36,8 +40,8 @@ _ScrumTeam_
 
 * **Paola Andrea Avella:** Ingeniera de sistemas con experiencia en analisis de requerimientos, mis intereses se enfocan hacia el desarrollo en Java.
 
-* **Hernán Darío Caicedo:**
+* **Hernán Darío Caicedo:** Tecnico profesional en soluciones web, competente para la realizacion y formulacion de proyectos, estudiante en proceso y con muchas ganas de aprender.
 
-* **Juan Vaquiro Daiz:** 
+* **Juan Vaquiro Daiz:**  
 
 * **Freddy Andrés Camargo:** soy un bogotano de 29 años, (si tuviera 18 estaría en ing. de sistemas :D) profesional en Política y RR.II. con experiencia como consultor empresarial en asuntos corporativos. Quiero crear una aplicación móvil para el negocio de mi familia.
