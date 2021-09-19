@@ -10,9 +10,9 @@ el correspondiente seguimiento.
 
 _ScrumTeam_
 
-* **Juan Vaquiro Daiz** - *Admin BD* - [JuanVaquiro](https://github.com/JuanVaquiro)
+* **Juan Vaquiro Díaz** - *Admin BD* - [JuanVaquiro](https://github.com/JuanVaquiro)
 * **Paola Andrea Avella** - *Scrum Master* - [paolaAndrea5](https://github.com/paolaAndrea5)
-* **Maria Eugenia Zapata** - *Analista* - [maeuza](https://github.com/maeuza)
+* **María Eugenia Zapata** - *Analista* - [maeuza](https://github.com/maeuza)
 * **Freddy Andrés Camargo** - *Product Owner* - [AndiCrop](https://github.com/AndiCrop)
 * **Hernán Darío Caicedo** - *Developer* - [DarioCaicedoS](https://github.com/DarioCaicedoS)
 
@@ -36,7 +36,7 @@ _ScrumTeam_
 
 ## Descripción desarrolladores 📑:
 
-* **Maria Eugenia Zapata:**  Ingeniera de sistemas, docente, esperiencia en análisis y proyectos.
+* **Maria Eugenia Zapata:**  Ingeniera de sistemas, docente, experiencia en análisis y proyectos.Estoy desarrollando un proyecto personal enfocado en aplicaciones y por eso quiero actualizarme.
 
 * **Paola Andrea Avella:** Ingeniera de sistemas con experiencia en analisis de requerimientos, mis intereses se enfocan hacia el desarrollo en Java.
 
