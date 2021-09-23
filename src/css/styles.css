@@ -1,0 +1,8 @@
+/* este estilo lo pueden eliminar  */
+.App{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 20%;
+}
+
