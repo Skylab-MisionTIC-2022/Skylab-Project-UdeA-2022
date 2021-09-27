@@ -1,17 +1,13 @@
 import 'css/styles.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    // Inicio del portal Colocar los respectivas estiquetas desde el <header>
-    // debajodo de <div className="App">
+
     <div className="App">
 
-
-    <p >Hola este sera la Pag. Bievenidos </p>
-    <a href="https://example-login.com">Pag. Login</a>
-       
-      
-
+    <h1>Hola chic@s aquí se integraran las paginas </h1>
+  
     </div>
   );  
 }
