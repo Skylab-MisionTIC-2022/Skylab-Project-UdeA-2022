@@ -16,7 +16,9 @@ function App() {
     <Router>
       <Switch>
         <Route path="/Home">
+        <PrivateLayout>
           <Home />
+        </PrivateLayout>
         </Route>
         <Route path="/usuarios/editar" exact>
           <FormularioUsuarioEditar />
