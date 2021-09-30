@@ -1,45 +1,47 @@
-html,body{
-   /* background-image: url('https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80');*/
-    background-image: url('https://images.unsplash.com/photo-1483721310020-03333e577078?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=928&q=80');
-   /* background-image: url('https://images.unsplash.com/photo-1463694372132-6c267f6ba561?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=871&q=80');*/
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-}
-    
-.container{
-    height: 100%;
-    align-content: center;
-    padding-top: 10%;
-}
-    
-.card{
-    background-color: rgba(250, 250, 250, 0.904) !important;  
-    height: 70%;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 40%;
-    
-}
-.logo{
-    align-content: center;
-    height: 30%;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 100%;
-
-}
-.textLogin{
-    padding-top: 10%;
-    padding-left: 35%;
-    padding-right: 35%;
-    color:rgb(33, 80, 122);
-
-}  
-.buttonLogin{
-    padding-top: 10%;
-    padding-left: 23%;
-    padding-right: 23%;
-    padding-bottom: 10%;
-}  
+.backgroundImg{
+    /* background-image: url('https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80');*/
+     /*background-image: url('https://images.unsplash.com/photo-1483721310020-03333e577078?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=928&q=80');*/
+    /* background-image: url('https://images.unsplash.com/photo-1463694372132-6c267f6ba561?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=871&q=80');*/
+ 
+     background-size: cover;
+     background-repeat: no-repeat;
+     height: 100%;
+     width: 100%;
+     position: absolute;
+ }
+     
+ .container{
+     height: 100%;
+     align-content: center;
+     padding-top: 1%;
+ }
+     
+ .card{
+     background-color: rgba(250, 250, 250, 0.904) !important;  
+     height: 70%;
+     margin-top: auto;
+     margin-bottom: auto;
+     width: 40%;
+     
+ }
+ .logo{
+     align-content: center;
+     height: 30%;
+     margin-top: auto;
+     margin-bottom: auto;
+     width: 100%;
+ 
+ }
+ .textLogin{
+     padding-top: 10%;
+     padding-left: 35%;
+     padding-right: 35%;
+     color:rgb(33, 80, 122);
+ 
+ }  
+ .buttonLogin{
+     padding-top: 10%;
+     padding-left: 23%;
+     padding-right: 23%;
+     padding-bottom: 10%;
+ }  
