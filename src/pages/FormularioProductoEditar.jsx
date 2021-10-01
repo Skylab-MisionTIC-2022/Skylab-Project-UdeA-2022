@@ -22,14 +22,14 @@ const FormularioProductoEditar = props => {
             <form>
                 <div class="row">
                     <div class="col">
-                        <label for="name"> Codigo </label>
+                        <label for="codigo"> Codigo </label>
                         <div>
                             <input type="text" readonly class="form-control"  value={location.state.detail[0]}/>
                         </div>
                         
                     </div>
                     <div class="col">
-                        <label for="name">Descripcion</label>
+                        <label for="descripcion">Descripcion</label>
                         <div>
                             <input type="text" readonly class="form-control"  value={location.state.detail[1]}/>
                         </div>
@@ -38,9 +38,9 @@ const FormularioProductoEditar = props => {
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label for="email">Valor Unitario</label>
+                        <label for="valor">Valor Unitario</label>
                         <div>
-                            <input type="text" readonly class="form-control"  value={location.state.detail[2]}/>
+                            <input type="number" readonly class="form-control"  value={location.state.detail[2]}/>
                         </div>
                     </div>
 
