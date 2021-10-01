@@ -41,4 +41,31 @@
     background-color: rgb(33, 80, 122);
 }
 
-
+/* barra de busqueda  */
+.buscar {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 4px;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buscar:focus-within {
+    border: 1px solid blue;
+  }
+  
+  .buscar > input {
+    outline: none;
+    border: 0px;
+  }
+  
+  .iconoBusqueda:hover {
+    color: blue;
+  }
+  
+  .breedCardContainer {
+    display: flex;
+  }
+  /* FIN de barra busqueda  */

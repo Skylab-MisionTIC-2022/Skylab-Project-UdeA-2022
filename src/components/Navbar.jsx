@@ -9,9 +9,9 @@ const Navbar = () => {
          
         </div>
         
-          <div className='buscar'>
-            <input placeholder='Buscar ' />
-            <i className='fas fa-search botonGenerico iconoBusqueda'></i>
+          <div className='buscar mt-2 p-2 ' >
+            <input placeholder='Buscar  '  />
+            <i className='mt-1 fas fa-search botonGenerico iconoBusqueda'></i>
           </div>
         
 
