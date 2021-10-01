@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { GoogleLogin } from 'react-google-login';
+import { Redirect } from 'react-router-dom';
+
+
 
 const clientID = '842597579262-c1mdsi7ulc4rpf53l6aon3576fnvgfqu.apps.googleusercontent.com';
-const login = () => {
-    
+const Login = () => {
+
+    const[home, setHome]= useState(false);   
+   
     const onSuccess = (res) => {
-        console.log('currentuser', res.profileObj);
-        alert("Login exitoso, llamar otra pagina");
+        setHome(true);
     }
     const onFaile = (res) => {
-        console.log('Error', res);
+        setHome(false);
     }
     return (
         <div>
@@ -21,8 +25,9 @@ const login = () => {
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
             />
+            {home ? <Redirect to="/usuarios" /> : <div></div>}
         </div>
     )
 }
 
-export default login
+export default Login
