@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
@@ -68,7 +69,7 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400 hover:text-red-300">
-                  <a href="#">Ventas</a>
+                  <Link to='/Sales'>Ventas</Link>
                 </li>
               </ul>
             </div>
