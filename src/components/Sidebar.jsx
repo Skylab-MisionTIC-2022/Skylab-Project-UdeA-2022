@@ -30,7 +30,7 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400 hover:text-red-300">
-                  <a href="/usuarios">Usuarios</a>
+                  <Link to="/usuarios">Usuarios</Link>
                 </li>
               </ul>
             </div>
@@ -49,7 +49,7 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400 hover:text-red-300">
-                  <a href="products">Productos</a>
+                  <Link to="/products">Productos</Link>
                 </li>
               </ul>
             </div>
@@ -70,7 +70,7 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400 hover:text-red-300">
-                  <a href="#">Ventas</a>
+                  <Link to="/#poner-ruta-del-archivo-aqui#">Ventas</Link>
                 </li>
               </ul>
             </div>
