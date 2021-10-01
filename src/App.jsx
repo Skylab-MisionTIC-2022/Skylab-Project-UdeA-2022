@@ -1,4 +1,3 @@
-import 'css/styles.css';
 import Index from './pages/Index';
 import Home from 'pages/Home'
 import User from 'pages/User'
@@ -9,6 +8,7 @@ import PrivateLayout from 'layouts/PrivateLayout';
 import FormularioUsuario from 'pages/FormularioUsuario';
 import FormularioUsuarioEditar from 'pages/FormularioUsuarioEditar';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'css/styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
