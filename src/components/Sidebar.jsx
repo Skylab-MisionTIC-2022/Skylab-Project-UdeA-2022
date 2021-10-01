@@ -12,6 +12,7 @@ const Sidebar = () => {
               </svg>
             </div>
             <button className="text-white focus:text-red-300 ">INICIO</button>
+        
           </li>
 
           <li className="border-b-2  my-1"></li>
@@ -46,7 +47,7 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400 hover:text-red-300">
-                  <a href="#">Productos</a>
+                  <a href="Products">Productos</a>
                 </li>
               </ul>
             </div>

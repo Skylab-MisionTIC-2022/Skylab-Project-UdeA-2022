@@ -8,7 +8,7 @@ import React from 'react'
            Te damos la bienvenida a FitnesShop
          </h2>
          <h4 className="text-center font-bold text-blue-900  ">
-           Sistema de Gestíon de ventas
+           Sistema de Gestión de ventas
          </h4>
          <p>
            Aquí podrás gestionar todo lo relacionado con tus pedidos y la
