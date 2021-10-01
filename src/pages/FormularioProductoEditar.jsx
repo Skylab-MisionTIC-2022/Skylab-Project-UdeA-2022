@@ -40,7 +40,7 @@ const FormularioProductoEditar = props => {
                     <div class="col">
                         <label for="valor">Valor Unitario</label>
                         <div>
-                            <input type="number" readonly class="form-control"  value={location.state.detail[2]}/>
+                            <input type="text" readonly class="form-control"  value={location.state.detail[2]}/>
                         </div>
                     </div>
 
