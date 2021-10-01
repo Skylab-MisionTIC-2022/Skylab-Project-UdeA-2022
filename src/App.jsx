@@ -2,6 +2,8 @@ import Index from './pages/Index';
 import Home from 'pages/Home'
 import User from 'pages/User'
 import Products from 'pages/Products';
+import FormularioProducto from 'pages/FormularioProducto';
+import FormularioProductoEditar from 'pages/FormularioProductoEditar';
 import Sales from 'pages/Sales';
 import Usuarios from 'pages/Usuarios';
 import PrivateLayout from 'layouts/PrivateLayout';
@@ -35,9 +37,24 @@ function App() {
           <Usuarios />
           </PrivateLayout>  
         </Route>
-        <Route path="/">
-          <Index />
+  
+        <Route path="/products/crear" exact>
+        <PrivateLayout>
+        <FormularioProducto />
+        </PrivateLayout>
         </Route>
+        <Route path="/products/editar" exact>
+        <PrivateLayout>
+        <FormularioProductoEditar />
+        </PrivateLayout>
+        </Route>
+        <Route path="/products" exact>
+        <PrivateLayout>
+        <Products />
+        </PrivateLayout>
+        </Route>
+          <Index />
+       
       </Switch>
     </Router>
   );  

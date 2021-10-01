@@ -1,17 +1,99 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
+import { Link, Redirect} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import { useHistory } from "react-router-dom";
+
+
+const products = [
+    { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
+    { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible" }
+
+]
 
 const Products = () => {
-    return (  
-        // NO eliminar el ml-64 => margin-left:16rem del div padre
-        // SI pueden modificar o eliminar el p-8 => padding: 2rem; flex-col => flex-direction: column;
-        <div className=" p-8  flex-col  ml-64 ">
-        
-            <p>Aqui poner el contenido</p>
-            <span>RUTA Productos</span>
+    const [mostrarTabla, setTabla] = useState(false);
+    const [productsInfo, setProductsInfo] = useState([]);
+   
 
+    useEffect(() => {
+        setProductsInfo(products);
+        setTabla(false);
+    }, []);
+
+    return (
+        <div className=" p-8  flex-col  ml-64">
+            <h4 class='textblue'> ADMINISTRACION DE PRODUCTOS</h4>
+            <button class='buttonblue aligrigth' onClick={() => { setTabla(true) }}> Crear producto</button>
+            <TablaProducts listaProducts={productsInfo} />
+            
+            {mostrarTabla ? <Redirect to="/products/crear" /> : <p></p>}
+            
+            
         </div>
-
     );
 }
- 
-export default Products;
+
+
+const TablaProducts = ({ listaProducts }) => {
+    const [mostrarTabla, setTabla] = useState(false);
+    const [products, setProduct] = useState();
+    let history = useHistory();
+
+    useEffect(() => {
+        if(mostrarTabla){
+            
+        history.push({
+            pathname: '/products/editar',
+           // search: '?query=abc',
+            state: { detail: products }
+    
+        });
+    }
+    }, [mostrarTabla]);
+   
+    return (
+        <div>
+            <h5 class='textblue'> Productos</h5>
+            <table class='table table-bordered'>
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Descripcion</th>
+                        <th>Valor Unitario </th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {listaProducts.map((product) => {
+                        return (
+                            <tr>
+                                <th>{product.codigo}</th>
+                                <th>{product.descripcion}</th>
+                                <th>{product.valorunit}</th>
+                                <th>{product.estado}</th>
+                                <th><button onClick={() => { 
+                                     const arr =[product.codigo,product.descripcion,product.valorunit,product.estado]
+                                     setTabla(!mostrarTabla); 
+                                     setProduct(arr) }} class='buttonblue'>Editar</button>
+            
+                                <button class='buttonred'>Eliminar</button></th>
+                            </tr>
+
+
+                        );
+                    }
+
+                    )}
+
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+
+
+export default Products
+
+

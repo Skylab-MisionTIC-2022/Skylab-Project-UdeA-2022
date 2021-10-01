@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Redirect} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-const FormularioUsuario = () => {
+const FormularioProducto = () => {
 
     const [mostrarTabla, setTabla] = useState(false);
   
@@ -13,46 +13,38 @@ const FormularioUsuario = () => {
 
     return (
         <div className=" p-8  flex-col  ml-64">
-            <h4 class='textblue'> ADMINISTRACION DE USUARIOS</h4>
-            <button class='buttonblue aligrigth' onClick={() => { setTabla(true) }}> Ver usuarios</button>
-            {mostrarTabla ? <Redirect to="/usuarios" /> : <p></p>}
-            <h5 class='textblue'> Crear usuario</h5>
+            <h4 class='textblue'> ADMINISTRACION DE PRODUCTOS</h4>
+            <button class='buttonblue aligrigth' onClick={() => { setTabla(true) }}> Ver productos</button>
+            {mostrarTabla ? <Redirect to="/products" /> : <p></p>}
+            <h5 class='textblue'> Crear producto</h5>
             <form>
                 <div class="row">
                     <div class="col">
-                        <label for="name">Nombre</label>
+                        <label for="codigo">Codigo</label>
                         <input type="text" class="form-control" />
                     </div>
                     <div class="col">
-                        <label for="name">Primer Apellido</label>
+                        <label for="descripcion">Descripcion</label>
                         <input type="text" class="form-control" />
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label for="email">Correo</label>
-                        <input type="email" class="form-control" />
+                        <label for="valor">Valor Unitario</label>
+                        <input type="number" class="form-control" />
                     </div>
 
                     <div class="col">
 
                         <label for="estado">Estado</label>
                         <select class="form-control">
-                            <option>Pendiente</option>
-                            <option>Autorizado</option>
-                            <option>No Autorizado</option>
+                            <option>Disponible</option>
+                            <option>No Disponible</option>
                         </select>
 
                     </div>
-                    <div class="col">
 
-                        <label for="rol">Rol</label>
-                        <select class="form-control">
-                            <option>Administrador</option>
-                            <option>Vendedor</option>
-                        </select>
-                    </div>
 
                 </div>
             </form>
@@ -64,4 +56,4 @@ const FormularioUsuario = () => {
 }
 
 
-export default FormularioUsuario;
+export default FormularioProducto;
