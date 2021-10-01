@@ -8,6 +8,12 @@ const Navbar = () => {
       <div className="flex-grow">
          
         </div>
+        
+          <div className='buscar'>
+            <input placeholder='Buscar ' />
+            <i className='fas fa-search botonGenerico iconoBusqueda'></i>
+          </div>
+        
 
         <button className="mx-4 " name="ayuda">
           ayuda
