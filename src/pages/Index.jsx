@@ -4,7 +4,7 @@ import '../css/login.css'
 import logo from '../media/img/Logo.png'
 const Index = () => {
     return (
-        <div>
+        <div class="backgroundImg">
             <div class="container">
                 <div class="d-flex justify-content-center h-100">
                     <div class="card">
