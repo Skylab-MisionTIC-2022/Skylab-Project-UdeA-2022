@@ -20,19 +20,19 @@ const FormularioProducto = () => {
             <form>
                 <div class="row">
                     <div class="col">
-                        <label for="name">Codigo</label>
+                        <label for="codigo">Codigo</label>
                         <input type="text" class="form-control" />
                     </div>
                     <div class="col">
-                        <label for="name">Descripcion</label>
+                        <label for="descripcion">Descripcion</label>
                         <input type="text" class="form-control" />
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col">
-                        <label for="email">Valor Unitario</label>
-                        <input type="text" class="form-control" />
+                        <label for="valor">Valor Unitario</label>
+                        <input type="number" class="form-control" />
                     </div>
 
                     <div class="col">
