@@ -27,7 +27,7 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400 hover:text-red-300">
-                  <a href="#">Usuarios</a>
+                  <a href="/usuarios">Usuarios</a>
                 </li>
               </ul>
             </div>

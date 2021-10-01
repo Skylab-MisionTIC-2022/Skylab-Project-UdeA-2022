@@ -14,7 +14,7 @@ const FormularioUsuarioEditar = props => {
     }, []);
 
     return (
-        <div>
+        <div className=" p-8  flex-col  ml-64">
             <h4 class='textblue'> ADMINISTRACION DE USUARIOS</h4>
             <button class='buttonblue aligrigth' onClick={() => { setTabla(true) }}> Ver usuarios</button>
             {mostrarTabla ? <Redirect to="/usuarios" /> : <p></p>}

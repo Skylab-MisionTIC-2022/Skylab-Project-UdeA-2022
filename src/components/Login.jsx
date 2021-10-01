@@ -25,7 +25,7 @@ const Login = () => {
                 cookiePolicy={'single_host_origin'}
                 isSignedIn={true}
             />
-            {home ? <Redirect to="/usuarios" /> : <div></div>}
+            {home ? <Redirect to="/Home" /> : <div></div>}
         </div>
     )
 }

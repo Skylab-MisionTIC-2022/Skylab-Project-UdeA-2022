@@ -21,13 +21,19 @@ function App() {
         </PrivateLayout>
         </Route>
         <Route path="/usuarios/editar" exact>
+        <PrivateLayout>
           <FormularioUsuarioEditar />
+          </PrivateLayout>  
         </Route>
         <Route path="/usuarios/crear" exact>
+        <PrivateLayout>
           <FormularioUsuario />
+          </PrivateLayout>  
         </Route>
         <Route path="/usuarios" exact>
+        <PrivateLayout>
           <Usuarios />
+          </PrivateLayout>  
         </Route>
         <Route path="/">
           <Index />
