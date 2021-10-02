@@ -98,10 +98,6 @@ const ElegirItems = ({ dataItems }) =>{
                                 <td>{producto.precio}</td>
                                 <td>{producto.total}</td>
                                 <td>
-                                    {/* Pendiente agregar evento a boton editar */}
-                                    <Link to='/EditarVenta'>
-                                        <button class='buttonblue' >Editar</button>
-                                    </Link>
                                     <Link to='/FormularioProductoEditar'>
                                         <button class='buttonred' >Eliminar</button>
                                     </Link>
