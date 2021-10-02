@@ -21,7 +21,7 @@ const CrearVenta = () => {
                     <div className='col'>
                         <label for="vendedor">Vendedor</label>
                         <select name="vendedor" id='vendedor' className="form-control">
-                                <option value="Seleccione">Seleccione</option>
+                                <option value="Seleccione" disabled>Seleccione</option>
                                 <option value="Maria">Maria</option>
                                 <option value="Paola">Paola</option>
                                 <option value="Juan">Juan</option>
@@ -31,11 +31,11 @@ const CrearVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="cliente">Nombre Cliente</label>
-                        <input type="text" className="form-control" />
+                        <input type="text" placeholder='Angela Zuluaga' className="form-control" />
                     </div>
                     <div class="col">
                         <label for="documentoCliente">N° Documento del Cliente</label>
-                        <input type="number" className="form-control" />
+                        <input type="number" placeholder='1018523687' className="form-control" />
                     </div>
                 </div>
                 <div className='row'>
@@ -46,7 +46,7 @@ const CrearVenta = () => {
                     <div class="col">
                         <label for="estado">Estado</label>
                         <select name="estado" id='estado' className="form-control">
-                            <option value="Seleccione">Seleccione</option>
+                            <option value="Seleccione" disabled>Seleccione</option>
                             <option value="en proceso">En proceso</option>
                             <option value="cancelada">Cancelada</option>
                             <option value="cancelada">Entregada</option>
@@ -81,22 +81,24 @@ const ElegirItems = ({ dataItems }) =>{
             <table className='table table-bordered'>
                 <thead>
                     <tr>
+                        <input type='checkbox' className='my-3' disabled/>
                         <th>Código</th>
                         <th>Descripcion</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
-                        <th>Total</th>
+                        <th>Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataItems.map((producto) => {
                         return (
                             <tr>
+                                <input type="checkbox" className='my-3'/>
                                 <td>{producto.codigo}</td>
                                 <td>{producto.descripcion}</td>
-                                <td>{producto.cantidad}</td>
+                                <input type="number" name='cantidad' className='w-24' min='0'/>
                                 <td>{producto.precio}</td>
-                                <td>{producto.total}</td>
+                                <input type="number" className='w-24'/>
                                 <td>
                                     <Link to='/FormularioProductoEditar'>
                                         <button class='buttonred' >Eliminar</button>
