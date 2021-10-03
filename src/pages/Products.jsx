@@ -53,7 +53,12 @@ const TablaProducts = ({ listaProducts }) => {
    
     return (
         <div>
-            <h5 class='textblue'> Productos</h5>
+            <h5 class='textblue my-2 p-3'> Productos</h5>
+            <div className='space-x-1'>   
+                <input type="text" placeholder='ID Producto' className='w-24 border border-blue-500 rounded' />
+                <input type="text" placeholder='Descripción' className='w-35 border border-blue-500 rounded' />
+                <button className='bg-transparent text-blue-700 border border-blue-500 rounded p-1 mb-3 aligrigth'>Filtrar</button>
+            </div>
             <table class='table table-bordered'>
                 <thead>
                     <tr>
