@@ -12,6 +12,8 @@ import FormularioUsuarioEditar from 'pages/FormularioUsuarioEditar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'css/styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CrearVenta from 'pages/CrearVenta';
+import EditarVenta from 'pages/EditarVenta';
 
 function App() {
   return (
@@ -52,6 +54,21 @@ function App() {
         <PrivateLayout>
         <Products />
         </PrivateLayout>
+        </Route>
+        <Route path="/Sales" exact>
+        <PrivateLayout>
+          <Sales />
+        </PrivateLayout>  
+        </Route>
+        <Route path="/CrearVenta" exact>
+        <PrivateLayout>
+          <CrearVenta />
+        </PrivateLayout>  
+        </Route>
+        <Route path="/EditarVenta" exact>
+        <PrivateLayout>
+          <EditarVenta />
+        </PrivateLayout>  
         </Route>
           <Index />
        
