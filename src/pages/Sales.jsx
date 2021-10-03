@@ -44,7 +44,7 @@ const TablaVentas = ({ dataVentas }) =>{
             <h5 className='textblue my-2 p-3'>Ventas Actuales</h5>
             <div className='space-x-1'>   
                 <input type="text" placeholder='ID Venta' className='w-20 border border-blue-500 rounded' />
-                <input type="text" placeholder='Documento' className='w-24 border border-blue-500 rounded' />
+                <input type="text" placeholder='Doc Cliente' className='w-24 border border-blue-500 rounded' />
                 <input type="text" placeholder='Nombre' className='w-24 border border-blue-500 rounded' />
                 <button className='bg-transparent text-blue-700 border border-blue-500 rounded p-1 mb-3 aligrigth'>Filtrar</button>
             </div>
