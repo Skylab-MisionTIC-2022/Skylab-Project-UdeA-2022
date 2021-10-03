@@ -14,11 +14,6 @@ const listaProductos = [
 
 const CrearVenta = () => {
 
-    // const [vendedor, setVendedor] = useState();
-    // const [nombreCliente, setNombre] = useState();
-    // const [identificacionCliente, setIdentificacionCliente] = useState();
-    // const [fecha, setfecha] = useState();
-    // const [estado, setEstado] = useState();
 
     const GuardarInfoVentas = () =>{
         toast.success("Venta guardada con éxito");
