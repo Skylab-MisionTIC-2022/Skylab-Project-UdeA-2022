@@ -1,14 +1,29 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const listaProductos = [
 
 { codigo: "A3020", descripcion: "Licra deportiva", cantidad : "2", precio: "$90.000",  total :"180.000" },
 { codigo: "B4560", descripcion: "body deportivo", cantidad : "2", precio: "$50.000",  total: "100.000" },
 { codigo : "sdg", descripcion : "jogger", cantidad : "2", precio : "35000", total : "70000"},
-]
+];
+
+
 
 const CrearVenta = () => {
+
+    // const [vendedor, setVendedor] = useState();
+    // const [nombreCliente, setNombre] = useState();
+    // const [identificacionCliente, setIdentificacionCliente] = useState();
+    // const [fecha, setfecha] = useState();
+    // const [estado, setEstado] = useState();
+
+    const GuardarInfoVentas = () =>{
+        toast.success("Venta guardada con éxito");
+    }
+
     return (
         <div className=" p-8  flex-col  ml-64 ">
             <h4 className='textblue'> ADMINISTRACION DE VENTAS</h4>
@@ -20,7 +35,8 @@ const CrearVenta = () => {
                 <div className='row'>
                     <div className='col'>
                         <label for="vendedor">Vendedor</label>
-                        <select name="vendedor" id='vendedor' className="form-control">
+                        <select name="vendedor" id='vendedor' className="form-control"
+                        required>
                                 <option value="Seleccione" disabled>Seleccione</option>
                                 <option value="Maria">Maria</option>
                                 <option value="Paola">Paola</option>
@@ -31,21 +47,24 @@ const CrearVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="cliente">Nombre Cliente</label>
-                        <input type="text" placeholder='Angela Zuluaga' className="form-control" />
+                        <input type="text" placeholder='Angela Zuluaga' 
+                        className="form-control" required
+                        />
                     </div>
                     <div class="col">
                         <label for="documentoCliente">N° Documento del Cliente</label>
-                        <input type="number" placeholder='1018523687' className="form-control" />
+                        <input type="number" placeholder='1018523687' 
+                        className="form-control" required />
                     </div>
                 </div>
                 <div className='row'>
-                    <div class="col">
+                    <div className="col">
                         <label for="fecha">Fecha</label>
-                        <input type="date" className="form-control" />
+                        <input type="date" className="form-control" required/>
                     </div>
-                    <div class="col">
+                    <div className="col">
                         <label for="estado">Estado</label>
-                        <select name="estado" id='estado' className="form-control">
+                        <select name="estado" id='estado' className="form-control" required>
                             <option value="Seleccione" disabled>Seleccione</option>
                             <option value="en proceso">En proceso</option>
                             <option value="cancelada">Cancelada</option>
@@ -59,14 +78,18 @@ const CrearVenta = () => {
 
             <form>
                 <div className='row'>
-                    <div class="col">
+                    <div className="col">
                         <label for="valor Total">Valor Total</label>
-                        <input type="number" className="form-control" />
+                        <input type="number" className="form-control" required/>
                     </div>
                 </div>
             </form>
-            <div class="contecentrado">
-                <button class='buttonblue'>Guardar</button>
+            <div className="contecentrado">
+                <button type='submit' className='buttonblue' onClick={GuardarInfoVentas}
+                >Guardar</button>
+                <ToastContainer
+                position="top-center"
+                autoClose={3000} />
             </div>
 
 
@@ -101,7 +124,7 @@ const ElegirItems = ({ dataItems }) =>{
                                 <input type="number" className='w-24'/>
                                 <td>
                                     <Link to='/FormularioProductoEditar'>
-                                        <button class='buttonred' >Eliminar</button>
+                                        <button className='buttonred' >Eliminar</button>
                                     </Link>
                                 </td>
                             </tr>
