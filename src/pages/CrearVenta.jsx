@@ -28,6 +28,11 @@ const CrearVenta = () => {
             <h5 className='textblue'>Crea tu Venta</h5>
             <form>
                 <div className='row'>
+                    <div class="col">
+                        <label for="idVenta">ID Venta</label>
+                        <input type="number" placeholder='3' 
+                        className="form-control" required />
+                    </div>
                     <div className='col'>
                         <label for="vendedor">Vendedor</label>
                         <select name="vendedor" id='vendedor' className="form-control"

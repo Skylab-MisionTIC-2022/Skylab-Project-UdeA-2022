@@ -21,9 +21,13 @@ const EditarVenta = () => {
             <h5 className='textblue'>Edita tu Venta</h5>
             <form>
                 <div className='row'>
+                    <div class="col">
+                        <label for="idVenta">ID Venta</label>
+                        <input type="number" disabled className="form-control" required />
+                    </div>
                     <div className='col'>
                         <label for="vendedor">Vendedor</label>
-                        <select name="vendedor" id='vendedor' className="form-control" disabled >
+                        <select name="vendedor" id='vendedor' className="form-control"  >
                                 <option value="Seleccione">Seleccione</option>
                                 <option value="Maria">Maria</option>
                                 <option value="Paola">Paola</option>
@@ -34,17 +38,17 @@ const EditarVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="cliente">Nombre Cliente</label>
-                        <input type="text" className="form-control" disabled />
+                        <input type="text" className="form-control"  />
                     </div>
                     <div class="col">
                         <label for="documentoCliente" id="DocumentoClienteVenta">N° Documento del Cliente</label>
-                        <input type="number" className="form-control" disabled/>
+                        <input type="number" className="form-control" />
                     </div>
                 </div>
                 <div className='row'>
                     <div class="col">
                         <label for="fecha" id="fechaVenta">Fecha</label>
-                        <input type="date" className="form-control" disabled />
+                        <input type="date" className="form-control" />
                     </div>
                     <div class="col">
                         <label for="estado">Estado</label>
@@ -65,7 +69,7 @@ const EditarVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="valor Total" >Valor Total</label>
-                        <input type="number" className="form-control" disabled />
+                        <input type="number" className="form-control"  />
                     </div>
                 </div>
             </form>
