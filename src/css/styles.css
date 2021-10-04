@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.textblue{
+    padding-top: 2%;
+    color:rgb(33, 80, 122);
+    text-align: center;
+}
+.buttonblue{
+    background-color: rgb(33, 80, 122);
+    color: cornsilk;
+    border-radius: 5px;
+    border : 0px;
+    
+}
+.buttonred{
+    background-color: rgb(133, 46, 46);
+    color: cornsilk;
+    border-radius: 5px;
+    border : 0px;
+   
+}
+.aligrigth{
+    float: right;
+   
+}
+.aligcenter{
+    text-align: center;
+    align-items: center;
+}
+
+.contecentrado{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 5%;
+}
+
+.backgroundBlue{
+    background-color: rgb(33, 80, 122);
+}
+
+/* barra de busqueda  */
+.buscar {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 4px;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .buscar:focus-within {
+    border: 1px solid blue;
+  }
+  
+  .buscar > input {
+    outline: none;
+    border: 0px;
+  }
+  
+  .iconoBusqueda:hover {
+    color: blue;
+  }
+  
+  .breedCardContainer {
+    display: flex;
+  }
+  /* FIN de barra busqueda  */
