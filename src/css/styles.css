@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  overflow-x: hidden;
+}
+
 .textblue{
     padding-top: 2%;
     color:rgb(33, 80, 122);
@@ -69,3 +73,8 @@
     display: flex;
   }
   /* FIN de barra busqueda  */
+
+/* etiqueta lINK en Sidebar */
+.btn-side:hover {
+    color: white; 
+}

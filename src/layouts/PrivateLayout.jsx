@@ -9,7 +9,7 @@ const PrivateLayout = ({ children })=>  {
         <Navbar/>
         <div className="flex w-screen h-screen">
         <Sidebar/>
-        <main className="flex w-full ">{children}</main>
+        <main className="flex w-full overflow-x-auto">{children}</main>
         </div>
         </div>
     )

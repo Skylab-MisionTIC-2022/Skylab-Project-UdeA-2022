@@ -1,6 +1,5 @@
 import Index from './pages/Index';
 import Home from 'pages/Home'
-import User from 'pages/User'
 import Products from 'pages/Products';
 import FormularioProducto from 'pages/FormularioProducto';
 import FormularioProductoEditar from 'pages/FormularioProductoEditar';
