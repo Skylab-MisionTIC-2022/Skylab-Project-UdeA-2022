@@ -5,9 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const listaProductos = [
 
-{ codigo: "A3020", descripcion: "Licra deportiva", cantidad : "2", precio: "$90.000",  total :"180.000" },
-{ codigo: "B4560", descripcion: "body deportivo", cantidad : "2", precio: "$50.000",  total: "100.000" },
-{ codigo : "sdg", descripcion : "jogger", cantidad : "2", precio : "35000", total : "70000"},
+{ codigo: "A3020", descripcion: "Licra deportiva", cantidad : "2", precio: "$90.000",  total :"$180.000" },
+{ codigo: "B4560", descripcion: "body deportivo", cantidad : "2", precio: "$50.000",  total: "$100.000" },
+{ codigo : "sdg", descripcion : "jogger", cantidad : "2", precio : "$35.000", total : "$70.000"},
 ];
 
 
@@ -30,7 +30,7 @@ const CrearVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="idVenta">ID Venta</label>
-                        <input type="number" placeholder='3' 
+                        <input type="number" placeholder='N°' 
                         className="form-control" required />
                     </div>
                     <div className='col'>
@@ -47,13 +47,13 @@ const CrearVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="cliente">Nombre Cliente</label>
-                        <input type="text" placeholder='Angela Zuluaga' 
+                        <input type="text" placeholder='Ingrese el nombre' 
                         className="form-control" required
                         />
                     </div>
                     <div class="col">
                         <label for="documentoCliente">N° Documento del Cliente</label>
-                        <input type="number" placeholder='1018523687' 
+                        <input type="number" placeholder='Ingrese el documento' 
                         className="form-control" required />
                     </div>
                 </div>
@@ -112,6 +112,7 @@ const ElegirItems = ({ dataItems }) =>{
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Subtotal</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
