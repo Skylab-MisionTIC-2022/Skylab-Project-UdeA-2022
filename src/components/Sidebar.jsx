@@ -13,7 +13,7 @@ const Sidebar = () => {
               </svg>
             </div>  
             <Link to="/Home">
-            <button   className="text-white focus:text-red-300 ">INICIO</button>
+              <button  className="text-white focus:text-red-300 ">INICIO</button>
             </Link>
           </li>
 
