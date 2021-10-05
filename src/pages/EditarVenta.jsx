@@ -9,6 +9,15 @@ const listaProductos = [
     { codigo : "C5642", descripcion : "jogger", cantidad : "2", precio : "35000", total : "70000"},
     ];
 
+const listaVentas = [
+    { vendedor : "Paola Avella", documento : "1013246567", cliente : "Sebastian Ramirez", documentoCliente : "1014639405",
+    fecha : "1-10-2021", idVenta: "1", valorTotal: "50.000", codigoProducto: "B4560", cantidadProducto: "1",
+    precioProducto : "50.000", estado: "Entregada" },
+    { vendedor : "Juan Avella", documento : "1015246778", cliente : "Julieta Florez", documentoCliente : "1019648315", fecha : "5-09-2021",
+        idVenta: "2", valorTotal: "90.000", codigoProducto: "3020", cantidadProducto: "1", precioProducto : "90.000", 
+        estado: "Cancelada" }
+]
+
 const EditarVenta = () => {
     
 
@@ -23,11 +32,11 @@ const EditarVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="idVenta">ID Venta</label>
-                        <input type="number" disabled className="form-control" required />
+                        <input type="number" disabled className="form-control" required placeholder='1' />
                     </div>
                     <div className='col'>
                         <label for="vendedor">Vendedor</label>
-                        <select name="vendedor" id='vendedor' className="form-control"  >
+                        <select name="vendedor" id='vendedor' className="form-control" placeholder='Paola' >
                                 <option value="Seleccione">Seleccione</option>
                                 <option value="Maria">Maria</option>
                                 <option value="Paola">Paola</option>
@@ -38,21 +47,21 @@ const EditarVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="cliente">Nombre Cliente</label>
-                        <input type="text" className="form-control"  />
+                        <input type="text" className="form-control" placeholder='Sebastian Ramirez' />
                     </div>
                     <div class="col">
                         <label for="documentoCliente" id="DocumentoClienteVenta">N° Documento del Cliente</label>
-                        <input type="number" className="form-control" />
+                        <input type="number" className="form-control" placeholder='1013246567'/>
                     </div>
                 </div>
                 <div className='row'>
                     <div class="col">
                         <label for="fecha" id="fechaVenta">Fecha</label>
-                        <input type="date" className="form-control" />
+                        <input type="date" className="form-control" placeholder='1/10/2021'/>
                     </div>
                     <div class="col">
                         <label for="estado">Estado</label>
-                        <select name="estado" id='estado' className="form-control">
+                        <select name="estado" id='estado' className="form-control" value=''>
                             <option value="Seleccione">Seleccione</option>
                             <option value="en proceso">En proceso</option>
                             <option value="cancelada">Cancelada</option>
@@ -69,7 +78,7 @@ const EditarVenta = () => {
                 <div className='row'>
                     <div class="col">
                         <label for="valor Total" >Valor Total</label>
-                        <input type="number" className="form-control"  />
+                        <input type="number" className="form-control" placeholder='$50.000' />
                     </div>
                 </div>
             </form>
@@ -96,6 +105,7 @@ const ElegirItems = ({ dataItems }) =>{
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Subtotal</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,7 +117,7 @@ const ElegirItems = ({ dataItems }) =>{
                                 <td>{producto.descripcion}</td>
                                 <input type="number" name='cantidad' className='w-24' min='0'/>
                                 <td>{producto.precio}</td>
-                                <input type="number" className='w-24'/>
+                                <input type="number" name='subtotal' className='w-24'/>
                                 <td>
                                     <Link to='/FormularioProductoEditar'>
                                         <button className='buttonred' >Eliminar</button>
