@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { Link, Redirect} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 
 const products = [
@@ -44,7 +45,7 @@ const TablaProducts = ({ listaProducts }) => {
             
         history.push({
             pathname: '/products/editar',
-           // search: '?query=abc',
+           
             state: { detail: products }
     
         });
