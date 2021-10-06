@@ -37,7 +37,7 @@ const Productos = () => {
     }
   }, [mostrarTabla]);
   return (
-    <div className='flex h-full w-full flex-col items-center justify-start p-8'>
+    <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
       <div className='flex flex-col w-full'>
         <h2 className='text-3xl font-extrabold text-gray-900'>
           Página de administración de productos
@@ -46,7 +46,7 @@ const Productos = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-5 rounded-full m-6 w-28 self-end`}
+          className={`text-white bg-${colorBoton}-500 p-2 rounded-full m-8  self-end`}
         >
           {textoBoton}
         </button>
