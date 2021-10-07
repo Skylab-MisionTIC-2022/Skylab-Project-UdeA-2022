@@ -37,7 +37,7 @@ const Productos = () => {
     }
   }, [mostrarTabla]);
   return (
-    <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
+    <div className='flex h-full w-full flex-col items-center justify-start p-8'>
       <div className='flex flex-col w-full'>
         <h2 className='text-3xl font-extrabold text-gray-900'>
           Página de administración de productos
@@ -46,7 +46,7 @@ const Productos = () => {
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-2 rounded-full m-8  self-end`}
+          className={`text-white bg-${colorBoton}-500 p-5 rounded-full m-6 w-28 self-end`}
         >
           {textoBoton}
         </button>
@@ -114,10 +114,9 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
         {productosFiltrados.map((el) => {
           return (
             <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
-              <span>{el.codigo}</span>
-              <span>{el.desc}</span>
-              <span>{el.valorunit}</span>
-              <span>{el.estado}</span>
+              <span>{el.name}</span>
+              <span>{el.brand}</span>
+              <span>{el.model}</span>
             </div>
           );
         })}
@@ -130,11 +129,9 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
-    codigo: producto.codigo,
-    desc: producto.desc,
-    valorunit: producto.valorunit,
-    estado: producto.estado,
-  
+    name: producto.name,
+    brand: producto.brand,
+    model: producto.model,
   });
 
   const actualizarProducto = async () => {
@@ -190,17 +187,17 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.codigo}
-              onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, codigo: e.target.value })}
+              value={infoNuevoProducto.name}
+              onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, name: e.target.value })}
             />
           </td>
           <td>
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.desc}
+              value={infoNuevoProducto.brand}
               onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, desc: e.target.value })
+                setInfoNuevoProducto({ ...infoNuevoProducto, brand: e.target.value })
               }
             />
           </td>
@@ -208,30 +205,18 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.valorunit}
+              value={infoNuevoProducto.model}
               onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, valorunit: e.target.value })
+                setInfoNuevoProducto({ ...infoNuevoProducto, model: e.target.value })
               }
             />
           </td>
-          <td>
-          <input
-              className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-              type='text'
-              value={infoNuevoProducto.estado}
-              onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, estado: e.target.value })
-              }
-              />
-            </td>
-          </>
+        </>
       ) : (
         <>
-          <td>{producto.codigo}</td>
-          <td>{producto.desc}</td>
-          <td>{producto.valorunit}</td>
-          <td>{producto.estado}</td>
-       
+          <td>{producto.name}</td>
+          <td>{producto.brand}</td>
+          <td>{producto.model}</td>
         </>
       )}
       <td>
@@ -310,12 +295,9 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
       method: 'POST',
       url: 'https://vast-waters-45728.herokuapp.com/vehicle/create',
       headers: { 'Content-Type': 'application/json' },
-      data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
-      { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
+      data: { name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model },
     };
-  
-  
-  
+
     await axios
       .request(options)
       .then(function (response) {
@@ -344,24 +326,6 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             required
           />
         </label>
-        <label className='flex flex-col' htmlFor='descripcion'>
-          Descripción del producto
-          <input
-          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
-            placeholder='blusa deportiva'
-            required
-            />
-           </label>
-           <label className='flex flex-col' htmlFor='valorunit'>
-            Valor Unitario
-          <input
-          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
-            placeholder='70.000'
-            required
-            />
-           </label>
         <label className='flex flex-col' htmlFor='estado'>
           Estado del producto
           <select
@@ -370,7 +334,6 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
             required
             defaultValue={0}
           >
-            
             <option disabled value={0}>
               Seleccione una opción
             </option>
@@ -379,12 +342,19 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
           </select>
         </label>
-          
- 
-        <label>
-
-
+        <label className='flex flex-col' htmlFor='descripcion'>
+          Descripción del producto
+          <input
+            name='desc'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='number'
+            min={1992}
+            max={2022}
+            placeholder='2014'
+            required
+          />
         </label>
+
         <button
           type='submit'
           className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'

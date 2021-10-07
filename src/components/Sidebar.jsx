@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
+import useActiveRoute from 'hooks/useActiveRoute';
+
 const Sidebar = () => {
     return (
       <div className="flex h-screen p-4 border-r w-56   border-gray-200 backgroundBlue fixed ">
