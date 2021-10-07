@@ -141,7 +141,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://vast-waters-45728.herokuapp.com/vehicle/update/',
+      url: 'https://vast-waters-45728.herokuapp.com/producto/update/',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -163,7 +163,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://vast-waters-45728.herokuapp.com/vehicle/delete/',
+      url: 'https://vast-waters-45728.herokuapp.com/producto/delete/',
       headers: { 'Content-Type': 'application/json' },
       data: { id: producto._id },
     };
@@ -308,7 +308,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://vast-waters-45728.herokuapp.com/vehicle/create',
+      url: 'https://vast-waters-45728.herokuapp.com/producto/create',
       headers: { 'Content-Type': 'application/json' },
       data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
       { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
