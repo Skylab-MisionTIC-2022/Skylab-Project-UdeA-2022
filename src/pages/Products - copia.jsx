@@ -115,7 +115,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
           return (
             <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
               <span>{el.codigo}</span>
-              <span>{el.descripcion}</span>
+              <span>{el.desc}</span>
               <span>{el.valorunit}</span>
               <span>{el.estado}</span>
             </div>
@@ -131,7 +131,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
     codigo: producto.codigo,
-    descripcion: producto.descripcion,
+    desc: producto.desc,
     valorunit: producto.valorunit,
     estado: producto.estado,
   
@@ -141,7 +141,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://localhost:5000/Productos/Editar',
+      url: 'https://localhost:5000/Productos/Modificar/',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -163,7 +163,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://localhost:5000/Productos/Eliminar',
+      url: 'https://localhost:5000/Productos/Borrar/',
       headers: { 'Content-Type': 'application/json' },
       data: { id: producto._id },
     };
@@ -198,9 +198,9 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.descripcion}
+              value={infoNuevoProducto.desc}
               onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, descripcion: e.target.value })
+                setInfoNuevoProducto({ ...infoNuevoProducto, desc: e.target.value })
               }
             />
           </td>
@@ -236,7 +236,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
       ) : (
         <>
           <td>{producto.codigo}</td>
-          <td>{producto.descripcion}</td>
+          <td>{producto.desc}</td>
           <td>{producto.valorunit}</td>
           <td>{producto.estado}</td>
        
@@ -316,7 +316,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://localhost:5000/Productos',
+      url: 'https://localhost:5000/Productos/',
       headers: { 'Content-Type': 'application/json' },
       data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
       { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
