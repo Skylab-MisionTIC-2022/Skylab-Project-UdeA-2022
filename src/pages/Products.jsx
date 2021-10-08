@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
-  const [productos, setProductos] = useState([]);
+  const [Productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
   const [colorBoton, setColorBoton] = useState('indigo');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
@@ -40,7 +40,7 @@ const Productos = () => {
     <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
       <div className='flex flex-col w-full'>
         <h2 className='text-3xl font-extrabold text-gray-900'>
-          Administración de productos
+             Administración de productos
         </h2>
         <button
           onClick={() => {
@@ -52,11 +52,11 @@ const Productos = () => {
         </button>
       </div>
       {mostrarTabla ? (
-        <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
+        <TablaProductos listaProductos={Productos} setEjecutarConsulta={setEjecutarConsulta} />
       ) : (
         <FormularioCreacionProductos
           setMostrarTabla={setMostrarTabla}
-          listaProductos={productos}
+          listaProductos={Productos}
           setProductos={setProductos}
         />
       )}
@@ -130,10 +130,10 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
-    codigo: Productos.codigo,
-    descripcion: Productos.descripcion,
-    valorunit: Productos.valorunit,
-    estado: Productos.estado,
+    codigo: producto.codigo,
+    descripcion: producto.descripcion,
+    valorunit: producto.valorunit,
+    estado: producto.estado,
   
   });
 
@@ -141,7 +141,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://localhost:5000/Productos/Editar',
+      url: 'https://localhost:5000/Productos/Editar/',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -158,12 +158,12 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
         toast.error('Error modificando el producto');
         console.error(error);
       });
-  };
+  };  
 
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://localhost:5000/Productos/Eliminar',
+      url: 'https://localhost:5000/Productos/Eliminar/',
       headers: { 'Content-Type': 'application/json' },
       data: { id: producto._id },
     };
@@ -235,10 +235,10 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           </>
       ) : (
         <>
-          <td>{Productos.codigo}</td>
-          <td>{Productos.descripcion}</td>
-          <td>{Productos.valorunit}</td>
-          <td>{Productos.estado}</td>
+          <td>{producto.codigo}</td>
+          <td>{producto.descripcion}</td>
+          <td>{producto.valorunit}</td>
+          <td>{producto.estado}</td>
        
         </>
       )}
@@ -316,14 +316,13 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://localhost:5000/Productos',
+      url: 'https://localhost:5000/Productos/Nuevo/',
       headers: { 'Content-Type': 'application/json' },
-      data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
-      { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
+      data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
+    
     };
   
-  
-  
+   
     await axios
       .request(options)
       .then(function (response) {
@@ -404,4 +403,4 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
   );
 };
 
-export default Productos;
+export  default Productos
