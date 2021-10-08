@@ -10,13 +10,13 @@ const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
-  const [colorBoton, setColorBoton] = useState('indigo');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
       obtenerProductos(setProductos, setEjecutarConsulta);
+
     }
   }, [ejecutarConsulta]);
 
@@ -30,23 +30,23 @@ const Productos = () => {
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nuevo Producto');
-      setColorBoton('indigo');
+      
     } else {
       setTextoBoton('Mostrar Todos los productos');
-      setColorBoton('green');
+      
     }
   }, [mostrarTabla]);
   return (
     <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
       <div className='flex flex-col w-full'>
-        <h2 className='text-3xl font-extrabold text-gray-900'>
+        <h4 className='text-3xl font-extrabold text-gray-900'>
           Administración de productos
-        </h2>
+        </h4>
         <button
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white bg-${colorBoton}-500 p-2 rounded-full m-8  self-end`}
+          className={`text-white p-2 rounded-full m-8  self-end buttonblue`}
         >
           {textoBoton}
         </button>
@@ -85,7 +85,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-indigo-500'
       />
-      <h2 className='text-2xl font-extrabold text-gray-800'>Todos los productos</h2>
+      
       <div className='hidden md:flex w-full'>
         <table className='tabla'>
           <thead>
@@ -235,7 +235,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           </>
       ) : (
         <>
-          <td>{producto.codigo}</td>
+          <td >{producto.codigo}</td>
           <td>{producto.desc}</td>
           <td>{producto.valorunit}</td>
           <td>{producto.estado}</td>
@@ -395,7 +395,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
         </label>
         <button
           type='submit'
-          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'
+          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white buttonblue'
         >
           Guardar producto
         </button>

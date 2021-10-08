@@ -1,21 +1,23 @@
-import React, { useState, useEffect} from 'react';
-import { Redirect} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 
 const FormularioUsuario = () => {
 
     const [mostrarTabla, setTabla] = useState(false);
-  
-    
+
+
 
     useEffect(() => {
         setTabla(false);
     }, []);
 
     return (
-        <div className=" p-8  flex-col  ml-64">
-            <h4 class='textblue'> ADMINISTRACION DE USUARIOS</h4>
+        <div className="flex h-full w-full flex-col items-center justify-start p-8 ml-64">
+            <h4 className='text-3xl font-extrabold text-gray-900'>
+                Administración de usuario
+            </h4>
             <button class='buttonblue aligrigth' onClick={() => { setTabla(true) }}> Ver usuarios</button>
             {mostrarTabla ? <Redirect to="/usuarios" /> : <p></p>}
             <h5 class='textblue'> Crear usuario</h5>
@@ -59,7 +61,7 @@ const FormularioUsuario = () => {
                 </div>
             </form>
             <div class="contecentrado">
-            <button class='buttonblue'>Guardar</button>
+                <button class='buttonblue'>Guardar</button>
             </div>
         </div>
     );
