@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: 'https://vast-waters-45728.herokuapp.com/vehicle/' };
+  const options = { method: 'GET', url: 'http://localhost:5000/Productos/' };
   await axios
     .request(options)
     .then(function (response) {
