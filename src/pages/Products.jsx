@@ -356,6 +356,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
         <label className='flex flex-col' htmlFor='descripcion'>
           Descripción del producto
           <input
+          name='descripcion'
           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
             placeholder='blusa deportiva'
@@ -365,6 +366,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
            <label className='flex flex-col' htmlFor='valorunit'>
             Valor Unitario
           <input
+          name='valorunit'
           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
             placeholder='70.000'
