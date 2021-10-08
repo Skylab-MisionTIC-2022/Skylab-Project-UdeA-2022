@@ -238,7 +238,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
       ) : (
         <>
           <td >{producto.codigo}</td>
-          <td>{producto.desc}</td>
+          <td>{producto.descripcion}</td>
           <td>{producto.valorunit}</td>
           <td>{producto.estado}</td>
        
