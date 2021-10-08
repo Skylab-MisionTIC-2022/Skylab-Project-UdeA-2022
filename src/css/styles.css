@@ -82,12 +82,14 @@
   }
   
   .tabla th {
-    background-color: #04aa46;
+    background-color:rgb(33, 80, 122);
     color: white;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
   }
+
+
   
   .tabla tr:nth-child(even) {
     background-color: #f2f2f2;
