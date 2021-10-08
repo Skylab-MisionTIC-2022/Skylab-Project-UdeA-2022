@@ -8,15 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
-  const [Productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
+  const [colorBoton, setColorBoton] = useState('indigo');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
       obtenerProductos(setProductos, setEjecutarConsulta);
-
     }
   }, [ejecutarConsulta]);
 
@@ -30,35 +30,33 @@ const Productos = () => {
   useEffect(() => {
     if (mostrarTabla) {
       setTextoBoton('Crear Nuevo Producto');
-      
+      setColorBoton('indigo');
     } else {
       setTextoBoton('Mostrar Todos los productos');
-      
+      setColorBoton('green');
     }
   }, [mostrarTabla]);
   return (
     <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
       <div className='flex flex-col w-full'>
-
         <h2 className='text-3xl font-extrabold text-gray-900'>
-             Administración de productos
+          Administración de productos
         </h2>
-
         <button
           onClick={() => {
             setMostrarTabla(!mostrarTabla);
           }}
-          className={`text-white p-2 rounded-full m-8  self-end buttonblue`}
+          className={`text-white bg-${colorBoton}-500 p-2 rounded-full m-8  self-end`}
         >
           {textoBoton}
         </button>
       </div>
       {mostrarTabla ? (
-        <TablaProductos listaProductos={Productos} setEjecutarConsulta={setEjecutarConsulta} />
+        <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
       ) : (
         <FormularioCreacionProductos
           setMostrarTabla={setMostrarTabla}
-          listaProductos={Productos}
+          listaProductos={productos}
           setProductos={setProductos}
         />
       )}
@@ -87,7 +85,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
         placeholder='Buscar'
         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-indigo-500'
       />
-      
+      <h2 className='text-2xl font-extrabold text-gray-800'>Todos los productos</h2>
       <div className='hidden md:flex w-full'>
         <table className='tabla'>
           <thead>
@@ -117,7 +115,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
           return (
             <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
               <span>{el.codigo}</span>
-              <span>{el.descripcion}</span>
+              <span>{el.desc}</span>
               <span>{el.valorunit}</span>
               <span>{el.estado}</span>
             </div>
@@ -133,7 +131,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
     codigo: producto.codigo,
-    descripcion: producto.descripcion,
+    desc: producto.desc,
     valorunit: producto.valorunit,
     estado: producto.estado,
   
@@ -143,7 +141,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://localhost:5000/Productos/Editar/',
+      url: 'https://localhost:5000/Productos/Modificar/',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -160,12 +158,12 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
         toast.error('Error modificando el producto');
         console.error(error);
       });
-  };  
+  };
 
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://localhost:5000/Productos/Eliminar/',
+      url: 'https://localhost:5000/Productos/Borrar/',
       headers: { 'Content-Type': 'application/json' },
       data: { id: producto._id },
     };
@@ -200,9 +198,9 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
-              value={infoNuevoProducto.descripcion}
+              value={infoNuevoProducto.desc}
               onChange={(e) =>
-                setInfoNuevoProducto({ ...infoNuevoProducto, descripcion: e.target.value })
+                setInfoNuevoProducto({ ...infoNuevoProducto, desc: e.target.value })
               }
             />
           </td>
@@ -237,7 +235,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           </>
       ) : (
         <>
-          <td >{producto.codigo}</td>
+          <td>{producto.codigo}</td>
           <td>{producto.desc}</td>
           <td>{producto.valorunit}</td>
           <td>{producto.estado}</td>
@@ -318,13 +316,14 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://localhost:5000/Productos/Nuevo/',
+      url: 'https://localhost:5000/Productos/',
       headers: { 'Content-Type': 'application/json' },
-      data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
-    
+      data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
+      { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
     };
   
-   
+  
+  
     await axios
       .request(options)
       .then(function (response) {
@@ -396,7 +395,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
         </label>
         <button
           type='submit'
-          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white buttonblue'
+          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'
         >
           Guardar producto
         </button>
@@ -405,4 +404,4 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
   );
 };
 
-export  default Productos
+export default Productos;

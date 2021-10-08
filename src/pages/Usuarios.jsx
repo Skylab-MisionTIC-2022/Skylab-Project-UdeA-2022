@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
@@ -5,6 +6,13 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerUsuarios } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
+=======
+import React, { useState, useEffect} from 'react';
+import { Link, Redirect} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import { useHistory } from "react-router-dom";
+
+>>>>>>> 1e407a1a9b5fa829eaf0c68b189c918922107375
 
 const Usuarios = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);

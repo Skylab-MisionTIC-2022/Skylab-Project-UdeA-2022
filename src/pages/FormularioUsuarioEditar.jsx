@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import { useLocation } from "react-router-dom";
-import axios from 'axios';
+
 
 const FormularioUsuarioEditar = props => {
     const [mostrarTabla, setTabla] = useState(false);
