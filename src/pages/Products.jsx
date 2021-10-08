@@ -6,7 +6,7 @@ import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
 
-const productos = () => {
+const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [Productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
@@ -40,7 +40,7 @@ const productos = () => {
     <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
       <div className='flex flex-col w-full'>
         <h2 className='text-3xl font-extrabold text-gray-900'>
-          Administración de productos
+             Administración de productos
         </h2>
         <button
           onClick={() => {
@@ -98,11 +98,11 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
             </tr>
           </thead>
           <tbody>
-            {productosFiltrados.map((Productos) => {
+            {productosFiltrados.map((producto) => {
               return (
                 <FilaProducto
                   key={nanoid()}
-                  Producto={Producto}
+                  producto={producto}
                   setEjecutarConsulta={setEjecutarConsulta}
                 />
               );
@@ -126,14 +126,14 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
   );
 };
 
-const FilaProducto = ({ Productos, setEjecutarConsulta }) => {
+const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
-    codigo: Productos.codigo,
-    descripcion: Productos.descripcion,
-    valorunit: Productos.valorunit,
-    estado: Productos.estado,
+    codigo: producto.codigo,
+    descripcion: producto.descripcion,
+    valorunit: producto.valorunit,
+    estado: producto.estado,
   
   });
 
@@ -141,7 +141,7 @@ const FilaProducto = ({ Productos, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://localhost:5000/Productos/Editar',
+      url: 'https://localhost:5000/Productos/Editar/',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -158,14 +158,14 @@ const FilaProducto = ({ Productos, setEjecutarConsulta }) => {
         toast.error('Error modificando el producto');
         console.error(error);
       });
-  };
+  };  
 
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://localhost:5000/Productos/Eliminar',
+      url: 'https://localhost:5000/Productos/Eliminar/',
       headers: { 'Content-Type': 'application/json' },
-      data: { id: Productos._id },
+      data: { id: producto._id },
     };
 
     await axios
@@ -235,10 +235,10 @@ const FilaProducto = ({ Productos, setEjecutarConsulta }) => {
           </>
       ) : (
         <>
-          <td>{Productos.codigo}</td>
-          <td>{Productos.descripcion}</td>
-          <td>{Productos.valorunit}</td>
-          <td>{Productos.estado}</td>
+          <td>{producto.codigo}</td>
+          <td>{producto.descripcion}</td>
+          <td>{producto.valorunit}</td>
+          <td>{producto.estado}</td>
        
         </>
       )}
@@ -316,14 +316,13 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://localhost:5000/Productos',
+      url: 'https://localhost:5000/Productos/Nuevo/',
       headers: { 'Content-Type': 'application/json' },
-      data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
-      { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
+      data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
+    
     };
   
-  
-  
+   
     await axios
       .request(options)
       .then(function (response) {
@@ -404,4 +403,4 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
   );
 };
 
-export default Productos;
+export  default Productos
