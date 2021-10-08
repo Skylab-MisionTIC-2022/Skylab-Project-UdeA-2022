@@ -39,17 +39,6 @@ function App() {
           <Usuarios />
           </PrivateLayout>  
         </Route>
-  
-        <Route path="/products/crear" exact>
-        <PrivateLayout>
-        <FormularioProducto />
-        </PrivateLayout>
-        </Route>
-        <Route path="/products/editar" exact>
-        <PrivateLayout>
-        <FormularioProductoEditar />
-        </PrivateLayout>
-        </Route>
         <Route path="/products" exact>
         <PrivateLayout>
         <Products />
