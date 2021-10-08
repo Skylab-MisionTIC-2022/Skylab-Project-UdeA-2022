@@ -1,6 +1,6 @@
 {
-  "name": "project-test",
-  "version": "0.1.0",
+  "name": "api-fitnesshop",
+  "version": "1",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.3.0",
@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.22.0",
     "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
     "nanoid": "^3.1.29",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -49,5 +50,9 @@
     "autoprefixer": "^9",
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Skylab-MisionTIC-2022/Skylab-Project-UdeA-2022.git",
+  "author": "AndiCrop <andrescamargo.co@hotmail.com>",
+  "license": "MIT"
 }

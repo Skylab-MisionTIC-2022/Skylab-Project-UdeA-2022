@@ -141,7 +141,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://localhost:5000/Productos/Modificar/',
+      url: 'https://localhost:5000/Productos/Editar',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -163,7 +163,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://localhost:5000/Productos/Borrar/',
+      url: 'https://localhost:5000/Productos/Eliminar',
       headers: { 'Content-Type': 'application/json' },
       data: { id: producto._id },
     };
@@ -316,7 +316,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://localhost:5000/Productos/',
+      url: 'https://localhost:5000/Productos',
       headers: { 'Content-Type': 'application/json' },
       data: [ { codigo: "A3020", descripcion: "Licra deportiva", valorunit: "$90.000",  estado: "Disponible" },
       { codigo: "B4560", descripcion: "body deportivo", valorunit: "$50.000",  estado: "Disponible"  }]
