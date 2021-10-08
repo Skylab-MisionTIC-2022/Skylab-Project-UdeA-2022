@@ -100,3 +100,7 @@
     cursor: pointer;
   }
   
+  /* efecto hover: Link (sidebar) */
+.btn-side:hover{
+  color: white; 
+}
