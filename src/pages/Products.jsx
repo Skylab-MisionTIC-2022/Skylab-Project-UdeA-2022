@@ -130,10 +130,10 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
-    codigo: producto.codigo,
-    descripcion: producto.descripcion,
-    valorunit: producto.valorunit,
-    estado: producto.estado,
+    codigo: Productos.codigo,
+    descripcion: Productos.descripcion,
+    valorunit: Productos.valorunit,
+    estado: Productos.estado,
   
   });
 
@@ -235,10 +235,10 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           </>
       ) : (
         <>
-          <td>{producto.codigo}</td>
-          <td>{producto.descripcion}</td>
-          <td>{producto.valorunit}</td>
-          <td>{producto.estado}</td>
+          <td>{Productos.codigo}</td>
+          <td>{Productos.descripcion}</td>
+          <td>{Productos.valorunit}</td>
+          <td>{Productos.estado}</td>
        
         </>
       )}
