@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
-  const [Productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
@@ -54,11 +54,11 @@ const Productos = () => {
         </button>
       </div>
       {mostrarTabla ? (
-        <TablaProductos listaProductos={Productos} setEjecutarConsulta={setEjecutarConsulta} />
+        <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
       ) : (
         <FormularioCreacionProductos
           setMostrarTabla={setMostrarTabla}
-          listaProductos={Productos}
+          listaProductos={productos}
           setProductos={setProductos}
         />
       )}
@@ -143,7 +143,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'https://localhost:5000/Productos/Editar/',
+      url: 'http://localhost:5000/Productos/Editar/',
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -165,7 +165,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: 'https://localhost:5000/Productos/Eliminar/',
+      url: 'http://localhost:5000/Productos/Eliminar/',
       headers: { 'Content-Type': 'application/json' },
       data: { id: producto._id },
     };
@@ -318,7 +318,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'https://localhost:5000/Productos/Nuevo/',
+      url: 'http://localhost:5000/Productos/Nuevo/',
       headers: { 'Content-Type': 'application/json' },
       data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
     
