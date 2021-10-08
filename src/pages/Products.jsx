@@ -6,9 +6,9 @@ import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Productos = () => {
+const productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
-  const [productos, setProductos] = useState([]);
+  const [Productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
   const [colorBoton, setColorBoton] = useState('indigo');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
@@ -52,11 +52,11 @@ const Productos = () => {
         </button>
       </div>
       {mostrarTabla ? (
-        <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
+        <TablaProductos listaProductos={Productos} setEjecutarConsulta={setEjecutarConsulta} />
       ) : (
         <FormularioCreacionProductos
           setMostrarTabla={setMostrarTabla}
-          listaProductos={productos}
+          listaProductos={Productos}
           setProductos={setProductos}
         />
       )}
@@ -98,11 +98,11 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
             </tr>
           </thead>
           <tbody>
-            {productosFiltrados.map((producto) => {
+            {productosFiltrados.map((Productos) => {
               return (
                 <FilaProducto
                   key={nanoid()}
-                  producto={producto}
+                  Producto={Producto}
                   setEjecutarConsulta={setEjecutarConsulta}
                 />
               );
@@ -126,7 +126,7 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
   );
 };
 
-const FilaProducto = ({ producto, setEjecutarConsulta }) => {
+const FilaProducto = ({ Productos, setEjecutarConsulta }) => {
   const [edit, setEdit] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
@@ -165,7 +165,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
       method: 'DELETE',
       url: 'https://localhost:5000/Productos/Eliminar',
       headers: { 'Content-Type': 'application/json' },
-      data: { id: producto._id },
+      data: { id: Productos._id },
     };
 
     await axios
