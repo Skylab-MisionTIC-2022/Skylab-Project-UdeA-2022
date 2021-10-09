@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Usuarios = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);
     const [usuarios, setUsuarios] = useState([]);
-    const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
+    const [textoBoton, setTextoBoton] = useState('Crear Nuevo Usuario');
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
     useEffect(() => {
@@ -299,7 +299,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
                 <Dialog open={openDialog}>
                     <div className='p-8 flex flex-col'>
                         <h1 className='text-gray-900 text-2xl font-bold'>
-                            ¿Está seguro de querer eliminar el producto?
+                            ¿Está seguro de querer eliminar el usuario?
                         </h1>
                         <div className='flex w-full items-center justify-center my-4'>
                             <button
@@ -352,7 +352,7 @@ const FormularioCreacionUsuarios = ({ setMostrarTabla, listaProductos, setProduc
             .request(options)
             .then(function (response) {
                 console.log(response.data);
-                toast.success('Producto agregado usuario');
+                toast.success('Usuario agregado');
             })
             .catch(function (error) {
                 console.error(error);
