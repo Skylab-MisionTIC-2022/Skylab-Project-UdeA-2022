@@ -1,13 +1,10 @@
 import Index from './pages/Index';
 import Home from 'pages/Home'
 import Products from 'pages/Products';
-import FormularioProducto from 'pages/FormularioProducto';
-import FormularioProductoEditar from 'pages/FormularioProductoEditar';
 import Sales from 'pages/Sales';
 import Usuarios from 'pages/Usuarios';
 import PrivateLayout from 'layouts/PrivateLayout';
 import FormularioUsuario from 'pages/FormularioUsuario';
-import FormularioUsuarioEditar from 'pages/FormularioUsuarioEditar';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'css/styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -23,11 +20,7 @@ function App() {
           <Home />
         </PrivateLayout>
         </Route>
-        <Route path="/usuarios/editar" exact>
-        <PrivateLayout>
-          <FormularioUsuarioEditar />
-          </PrivateLayout>  
-        </Route>
+       
         <Route path="/usuarios/crear" exact>
         <PrivateLayout>
           <FormularioUsuario />
