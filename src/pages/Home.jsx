@@ -14,7 +14,9 @@ import React from 'react'
            Aquí podrás gestionar todo lo relacionado con tus pedidos y la
            administración de tus Productos.
          </p>
-         <span>Elige una opción a tu izquierda</span>
+         <p>
+         <span>Elige una opción a tu izquierda</span> 
+         </p>
        </div>
      </div>
    );
