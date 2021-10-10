@@ -322,7 +322,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
     );
 };
 
-const FormularioCreacionUsuarios = ({ setMostrarTabla, listaProductos, setProductos }) => {
+const FormularioCreacionUsuarios = ({ setMostrarTabla, listaUsuarios, setUsuarios }) => {
     const form = useRef(null);
 
     const submitForm = async (e) => {
