@@ -4,7 +4,6 @@ import Products from 'pages/Products';
 import Sales from 'pages/Sales';
 import Usuarios from 'pages/Usuarios';
 import PrivateLayout from 'layouts/PrivateLayout';
-import FormularioUsuario from 'pages/FormularioUsuario';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'css/styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -19,12 +18,6 @@ function App() {
         <PrivateLayout>
           <Home />
         </PrivateLayout>
-        </Route>
-       
-        <Route path="/usuarios/crear" exact>
-        <PrivateLayout>
-          <FormularioUsuario />
-          </PrivateLayout>  
         </Route>
         <Route path="/usuarios" exact>
         <PrivateLayout>
