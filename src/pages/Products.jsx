@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React, { useState, useEffect} from 'react';
-import { Link, Redirect} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import { useHistory } from "react-router-dom";
-import axios from 'axios';
-=======
 import React, { useEffect, useState, useRef } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
@@ -12,7 +5,6 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
->>>>>>> 0727a3c78c4c85e6fb696db688614184e6bf3ff8
 
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -79,27 +71,6 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
   const [busqueda, setBusqueda] = useState('');
   const [productosFiltrados, setProductosFiltrados] = useState(listaProductos);
 
-<<<<<<< HEAD
-    useEffect(() => {
-        if(mostrarTabla){
-            
-        history.push({
-            pathname: '/products/editar',
-           
-            state: { detail: products }
-    
-        });
-    }
-    }, [mostrarTabla]);
-   
-    return (
-        <div>
-            <h5 class='textblue my-2 p-3'> Productos</h5>
-            <div className='space-x-1'>   
-                <input type="text" placeholder='ID Producto' className='w-24 border border-blue-500 rounded' />
-                <input type="text" placeholder='Descripción' className='w-35 border border-blue-500 rounded' />
-                <button className='bg-transparent text-blue-700 border border-blue-500 rounded p-1 mb-3 aligrigth'>Filtrar</button>
-=======
   useEffect(() => {
     setProductosFiltrados(
       listaProductos.filter((elemento) => {
@@ -149,7 +120,6 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
               <span>{el.descripcion}</span>
               <span>{el.valorunit}</span>
               <span>{el.estado}</span>
->>>>>>> 0727a3c78c4c85e6fb696db688614184e6bf3ff8
             </div>
           );
         })}
