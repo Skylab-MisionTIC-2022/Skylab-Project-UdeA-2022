@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
+
 const listaProductos = [
 
 { codigo: "A3020", descripcion: "Licra deportiva", cantidad : "2", precio: "$90.000",  total :"$180.000" },

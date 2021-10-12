@@ -1,10 +1,13 @@
 import React from 'react'
 import logo from 'media/img/Logo2.png'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
       <div className="bg-gray-200 flex p-2 shadow-sm sticky top-0" >
-        <img src={logo} />
+      <Link to="/Home">
+        <img className="-ml-4" src={logo} />
+      </Link>
       <div className="flex-grow">
          
         </div>
