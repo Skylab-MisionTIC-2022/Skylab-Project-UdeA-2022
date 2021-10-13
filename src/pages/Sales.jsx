@@ -4,8 +4,8 @@ import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerVentas } from 'utils/api';
-import { obtenerProductos } from 'utils/api';
-import { obtenerUsuarios } from 'utils/api';
+
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const Ventas = () => {
@@ -433,10 +433,10 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
             required
             />
            </label>
-           <label className='flex flex-col' htmlFor='valorVenta'>
+           <label className='flex flex-col' htmlFor='valorTotal'>
             Valor Venta
           <input
-          name='valorVenta'
+          name='valorTotal'
           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
             type='text'
             placeholder='70.000'
