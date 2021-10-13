@@ -4,6 +4,7 @@ import { crearVenta } from 'utils/api';
 import { obtenerProductos } from 'utils/api';
 import { obtenerVendedores } from 'utils/api';
 
+
 const Ventas = () => {
   const form = useRef(null);
   const [vendedores, setVendedores] = useState([]);
@@ -156,23 +157,25 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   return (
     <div>
       <div className='flex '>
-        <label className='flex flex-col' htmlFor='produ'>
+        <label className='flex flex-col' htmlFor='producto'>
           <select
             className='p-2'
-            value={productoAAgregar.codigo ?? ''}
+            value={productoAAgregar._id ?? ''}
             onChange={(e) =>
-              setProductoAAgregar(productos.filter((v) => v.codigo === e.target.value)[0])
+              setProductoAAgregar(productos.filter((v) => v._id === e.target.value)[0])
             }
           >
-            <option disabled value=''>
+
+ //           <option disabled value=''>
               Seleccione un Producto
             </option>
+
             {productos.map((el) => {
               return (
                 <option
                   key={nanoid()}
-                  value={el.codigo}
-                  >{`${el._id} ${el.descripcion} ${el.valorunit}  `}</option>
+                  value={el._id}
+                >{`${el.codigo} ${el.descripcion} ${el.valorunit} `}</option>
               );
             })}
           </select>
