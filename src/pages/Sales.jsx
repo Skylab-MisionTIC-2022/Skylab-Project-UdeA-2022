@@ -22,7 +22,7 @@ const Ventas = () => {
         (response) => {
           console.log('respuesta de ventas', response);
           setEjecutarConsulta(response.data);
-        },
+          },
         (error) => {
           console.error(error);
         }
@@ -434,7 +434,12 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
 
     const datosVenta = {
       vendedor: vendedores.filter((v) => v._id === formData.vendedor)[0],
-      cantidad: formData.valor,
+      idVenta: formData.idVenta,
+      fecha: formData.fecha,
+      documento: formData.documento,
+      cliente: formData.cliente,
+      estado: formData.estado,
+      valorTotal: formData.valor,
       productos: listaProductos,
     };
 
@@ -444,9 +449,11 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
       datosVenta,
       (response) => {
         console.log(response);
+        toast.success('Venta agregada con éxito');
       },
       (error) => {
         console.error(error);
+        toast.error('Error creando una venta');
       }
     );
     setMostrarTabla(true);
