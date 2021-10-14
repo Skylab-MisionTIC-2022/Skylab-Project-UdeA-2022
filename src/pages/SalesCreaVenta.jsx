@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 import React, { useState, useEffect, useRef } from 'react';
 import { crearVenta } from 'utils/api';
-import { obtenerProductos } from 'utils/api';
-import { obtenerVendedores } from 'utils/api';
+import { obtenerProductosV } from 'utils/api';
+import { obtenerUsuariosV } from 'utils/api';
 
 const Ventas = () => {
   const form = useRef(null);
@@ -12,9 +12,9 @@ const Ventas = () => {
 
   useEffect(() => {
     const fetchVendores = async () => {
-      await obtenerVendedores(
+      await obtenerUsuariosV(
         (response) => {
-          console.log('respuesta de vendedores', response);
+          console.log('respuesta de usuarios', response);
           setVendedores(response.data);
         },
         (error) => {
@@ -23,7 +23,7 @@ const Ventas = () => {
       );
     };
     const fetchProductos = async () => {
-      await obtenerProductos(
+      await obtenerProductosV(
         (response) => {
           setProductos(response.data);
         },
@@ -51,7 +51,7 @@ const Ventas = () => {
     const listaProductos = Object.keys(formData)
       .map((k) => {
         if (k.includes('producto')) {
-          return productosTabla.filter((v) => v._id === formData[k])[0];
+          return productosTabla.filter((v) => v.codigo === formData[k])[0];
         }
         return null;
       })
@@ -102,6 +102,70 @@ const Ventas = () => {
             })}
           </select>
         </label>
+
+        <label className='flex flex-col' htmlFor='idVenta'>
+          ID venta
+          <input
+            name='idVenta'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='consecutivo venta'
+            required
+          />
+        </label>
+
+        <label className='flex flex-col' htmlFor='fecha'>
+          Fecha de venta
+          <input
+          name='fecha'
+          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='fecha hoy'
+            required
+            />
+           </label>
+           <label className='flex flex-col' htmlFor='documento'>
+          Documento cliente
+          <input
+          name='documento'
+          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='1234'
+            required
+            />
+           </label>
+           <label className='flex flex-col' htmlFor='cliente'>
+          Nombre cliente
+          <input
+          name='cliente'
+          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='Pedro Perez'
+            required
+            />
+           </label>
+
+           <label className='flex flex-col' htmlFor='estado'>
+          Estado de la venta
+          <select
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            name='estado'
+            required
+            defaultValue={0}
+          >
+            
+            <option disabled value={0}>
+              Seleccione una opción
+            </option>
+            <option>Proceso</option>
+            <option>Cancelada</option>
+            <option>Entregada</option>
+
+          </select>
+        </label>
+
+
+
 
         <TablaProductos
           productos={productos}
@@ -156,7 +220,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   return (
     <div>
       <div className='flex '>
-        <label className='flex flex-col' htmlFor='produ'>
+        <label className='flex flex-col' htmlFor='producto'>
           <select
             className='p-2'
             value={productoAAgregar.codigo ?? ''}
@@ -172,7 +236,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
                 <option
                   key={nanoid()}
                   value={el.codigo}
-                  >{`${el._id} ${el.descripcion} ${el.valorunit}  `}</option>
+                  >{`${el.descripcion} ${el.valorunit}  `}</option>
               );
             })}
           </select>
@@ -189,7 +253,6 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
         <thead>
           <tr>
           <th>IDProducto</th>
-            <th>codigoProducto</th>
             <th>descripcion</th>
             <th>precio</th>
             <th>Cantidad</th>
@@ -201,9 +264,8 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
           {filasTabla.map((el, index) => {
             return (
               <tr key={nanoid()}>
-                <td>{el._id}</td>
                 <td>{el.codigo}</td>
-                <td>{el.descripciom}</td>
+                <td>{el.descripcion}</td>
                 <td>{el.valorunit}</td>
                 <td>
                   <label htmlFor={`valor_${index}`}>
@@ -216,7 +278,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
                     className='fas fa-minus text-red-500 cursor-pointer'
                   />
                 </td>
-                <input hidden defaultValue={el._id} name={`producto_${index}`} />
+                <input hidden defaultValue={el.codigo} name={`producto_${index}`} />
               </tr>
             );
           })}
