@@ -413,7 +413,7 @@ const FormularioCreacionUsuarios = ({ setMostrarTabla, listaUsuarios, setUsuario
                     </select>
                 </label>
                 <label className='flex flex-col' htmlFor='rol'>
-                    Estado
+                    Rol
                     <select
                         name='rol'
                         className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'

@@ -13,18 +13,18 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   setEjecutarConsulta(false);
 };
 
-export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/Ventas' };
-  await axios
-    .request(options)
-    .then(function (response) {
-      setVentas(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-  setEjecutarConsulta(false);
+export const obtenerProductosV = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/Productos/' };
+  await axios.request(options).then(successCallback).catch(errorCallback);
 };
+
+export const obtenerVentas= async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/Ventas/' };
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+
+
 
 // CRUD DE VENTAS
 
@@ -38,12 +38,13 @@ export const crearVenta = async (data, successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-// GET PARA VENDEDORES
+// CRUD PARA USUARIOS
 
-export const obtenerVendedores = async (successCallback, errorCallback) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/vendedores' };
+export const obtenerUsuariosV = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/Usuarios' };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
+
 
 // get PARA USUARIOS
 export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {

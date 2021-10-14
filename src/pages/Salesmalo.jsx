@@ -154,7 +154,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'http://localhost:5000/Ventas/Editar/',
+      url: `http://localhost:5000/Ventas/${venta._id}/`,
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevaVenta, id: venta._id },
     };
@@ -176,7 +176,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
   const eliminarVenta = async () => {
     const options = {
       method: 'DELETE',
-      url: 'http://localhost:5000/Ventas/Eliminar/',
+      url: `http://localhost:5000/Ventas/${venta._id}/`,
       headers: { 'Content-Type': 'application/json' },
       data: { id: venta._id },
     };
@@ -384,7 +384,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
       <h2 className='text-2xl font-extrabold text-gray-800'>Crear nueva venta</h2>
       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
         <label className='flex flex-col' htmlFor='idVenta'>
-          ID venta
+          Codigo del venta
           <input
             name='idVenta'
             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
