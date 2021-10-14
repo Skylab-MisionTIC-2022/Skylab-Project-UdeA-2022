@@ -1,8 +1,10 @@
 import React from 'react'
-import Login from '../components/Login'
 import '../css/login.css'
 import logo from '../media/img/Logo.png'
+import { useAuth0 } from "@auth0/auth0-react";
+
 const Index = () => {
+    const { loginWithRedirect } = useAuth0();
     return (
         <div class="backgroundImg">
             <div class="container">
@@ -12,11 +14,9 @@ const Index = () => {
                             <img class="logo" src={logo} />
 
                             <h5 class='textLogin'> BIENVENIDO </h5>
-                            <div class='buttonLogin'>
-                                <Login />
-                            </div>
+                            
 
-
+                            <button onClick={() => loginWithRedirect()}>Log In</button>;
 
 
                         </div>
