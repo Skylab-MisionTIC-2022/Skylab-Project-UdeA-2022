@@ -154,7 +154,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: 'http://localhost:5000/Ventas/Editar/',
+      url: `http://localhost:5000/Ventas/${venta._id}/`,
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevaVenta, id: venta._id },
     };
@@ -176,7 +176,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
   const eliminarVenta = async () => {
     const options = {
       method: 'DELETE',
-      url: 'http://localhost:5000/Ventas/Eliminar/',
+      url: `http://localhost:5000/Ventas/${venta._id}/`,
       headers: { 'Content-Type': 'application/json' },
       data: { id: venta._id },
     };
