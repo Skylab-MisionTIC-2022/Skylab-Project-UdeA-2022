@@ -470,7 +470,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
               Seleccione un Vendedor
             </option>
             {vendedores.map((el) => {
-              return <option key={nanoid()} value={el._id}>{`${el.nombre} ${el.apellido}`}</option>;
+              return <option key={nanoid()} value={el._id}>{`${el.name} ${el.lastname}`}</option>;
             })}
           </select>
         </label>
