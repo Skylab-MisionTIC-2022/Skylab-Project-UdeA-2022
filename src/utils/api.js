@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+export const getToken=()=>{
+  return `Bearer ${localStorage.getItem('token')}`
+}
+
+
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   const options = { method: 'GET', url: 'http://localhost:5000/Productos',
   headers: {
@@ -17,20 +22,34 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   setEjecutarConsulta(false);
 };
 
-export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/Ventas',
+// export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
+//   const options = { method: 'GET', url: 'http://localhost:5000/Ventas',
+//   headers: {
+//     Authorization: getToken(),
+//  } };
+//   await axios
+//     .request(options)
+//     .then(function (response) {
+//       setVentas(response.data);
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+//   setEjecutarConsulta(false);
+export const obtenerProductosV = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/Productos/',
   headers: {
     Authorization: getToken(),
  } };
-  await axios
-    .request(options)
-    .then(function (response) {
-      setVentas(response.data);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-  setEjecutarConsulta(false);
+  await axios.request(options).then(successCallback).catch(errorCallback);
+};
+
+export const obtenerVentas = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/Ventas/',
+  headers: {
+    Authorization: getToken(),
+ } };
+  await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
 //export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
@@ -61,19 +80,17 @@ export const crearVenta = async (data, successCallback, errorCallback) => {
 };
 
 
-export const obtenerVendedores = async (successCallback, errorCallback) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/vendedores',
+// CRUD PARA USUARIOS
+
+export const obtenerUsuariosV = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/Usuarios',
   headers: {
     Authorization: getToken(),
- }
-  
- };
+ } };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-const getToken=()=>{
-  return `Bearer ${localStorage.getItem('token')}`
-}
+
 
 // get PARA USUARIOS
 export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {

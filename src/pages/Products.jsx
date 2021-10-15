@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
-import { obtenerProductos } from 'utils/api';
+import { obtenerProductos, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Productos = () => {
@@ -144,7 +144,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     const options = {
       method: 'PATCH',
       url: `http://localhost:5000/Productos/${producto._id}/`,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { ...infoNuevoProducto, id: producto._id },
     };
 
@@ -166,7 +166,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     const options = {
       method: 'DELETE',
       url: `http://localhost:5000/Productos/${producto._id}/`,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { id: producto._id },
     };
 
@@ -319,7 +319,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
     const options = {
       method: 'POST',
       url: 'http://localhost:5000/Productos/Nuevo/',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
     
     };
