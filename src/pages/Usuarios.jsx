@@ -197,7 +197,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
                     </td>
                 
                     <td>
-                        <input
+                        <input readonly
                             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
                             type='text'
                             value={infoNuevoUsuario.email}

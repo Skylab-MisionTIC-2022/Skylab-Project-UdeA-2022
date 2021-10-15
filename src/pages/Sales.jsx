@@ -221,7 +221,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
       {edit ? (
         <>
           <td>
-            <input
+            <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
               value={infoNuevaVenta.idVenta}
@@ -229,7 +229,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
             />
           </td>
           <td>
-          <input
+          <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='date'
               value={infoNuevaVenta.fecha}
@@ -253,7 +253,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
             />
           </td>
           <td>       
-            <input
+            <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
               value={infoNuevaVenta.vendedor}
