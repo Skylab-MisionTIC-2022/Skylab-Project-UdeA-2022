@@ -21,7 +21,7 @@ const Ventas = () => {
       await obtenerVentas(
         (response) => {
           console.log('respuesta de ventas', response);
-          setEjecutarConsulta(response.data);
+          setVentas(response.data);
           },
         (error) => {
           console.error(error);
@@ -29,11 +29,10 @@ const Ventas = () => {
       );
     };
      fetchVtas();
+     setEjecutarConsulta(false);
   }, []);
 
- 
-
- // useEffect(() => {
+  // useEffect(() => {
    //  console.log('consulta', ejecutarConsulta);
    //  if (ejecutarConsulta) {
    //    obtenerVentas(setVentas, setEjecutarConsulta);
@@ -232,7 +231,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
           <td>
           <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-              type='text'
+              type='date'
               value={infoNuevaVenta.fecha}
               onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta,   fecha: e.target.value })}
             />
@@ -491,7 +490,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
           <input
           name='fecha'
           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
+            type='date'
             placeholder='fecha hoy'
             required
             />
