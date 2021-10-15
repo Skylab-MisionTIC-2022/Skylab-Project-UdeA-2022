@@ -16,7 +16,7 @@ const Index = () => {
                             <h5 class='textLogin'> BIENVENIDO </h5>
                             
 
-                            <button onClick={() => loginWithRedirect()}>Log In</button>;
+                            <button class="p-2  flex-col ml-40  my-11 buttonblue" onClick={() => loginWithRedirect()}> <h4>Iniciar sesion </h4></button>
 
 
                         </div>
