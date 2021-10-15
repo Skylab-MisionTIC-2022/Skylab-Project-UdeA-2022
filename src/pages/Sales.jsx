@@ -13,29 +13,32 @@ const Ventas = () => {
   const [textoBoton, setTextoBoton] = useState('Crear Nueva Venta');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
-  useEffect(() => {
-    const fetchVtas = async () => {
-      await obtenerVentas(
-        (response) => {
-          console.log('respuesta de ventas', response);
-          setVentas(response.data);
-          },
-        (error) => {
-          console.error(error);
-        }
-      );
-    };
-     fetchVtas();
-     setEjecutarConsulta(false);
-  }, []);
+ // useEffect(() => {
+  //  const fetchVtas = async () => {
+       // await obtenerVentas(
+       //   (response) => {
+       //     console.log('respuesta de ventas', response);
+       //     setVentas(response.data);
+       //     },
+       //   (error) => {
+       //     console.error(error);
+       //  //   }
+       // );
+     // };
+     //  fetchVtas();
+     //  setEjecutarConsulta(false);
+  //  }, []);
 
-  // useEffect(() => {
-   //  console.log('consulta', ejecutarConsulta);
-   //  if (ejecutarConsulta) {
-   //    obtenerVentas(setVentas, setEjecutarConsulta);
 
-   //  }
-  // }, [ejecutarConsulta]);
+  
+
+   useEffect(() => {
+    console.log('consulta', ejecutarConsulta);
+    if (ejecutarConsulta) {
+      obtenerVentas(setVentas, setEjecutarConsulta);
+
+    }
+  }, [ejecutarConsulta]);
 
 
 
