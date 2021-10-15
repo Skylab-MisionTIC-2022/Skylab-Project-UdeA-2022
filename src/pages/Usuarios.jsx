@@ -3,8 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
-import { obtenerUsuarios } from 'utils/api';
+import { obtenerUsuarios, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const Usuarios = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -145,7 +146,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
         const options = {
             method: 'PATCH',
             url: `http://localhost:5000/usuarios/${usuario._id}/`,
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { ...infoNuevoUsuario, id: usuario._id },
         };
 
@@ -167,7 +168,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
         const options = {
             method: 'DELETE',
             url: `http://localhost:5000/usuarios/${usuario._id}/`,
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { id: usuario._id },
         };
 
@@ -337,7 +338,7 @@ const FormularioCreacionUsuarios = ({ setMostrarTabla, listaUsuarios, setUsuario
         const options = {
             method: 'POST',
             url: 'http://localhost:5000/usuarios/nuevo/',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { name: nuevoUsuario.name, 
                     lastname:nuevoUsuario.lastname,
                     email:nuevoUsuario.email, 
