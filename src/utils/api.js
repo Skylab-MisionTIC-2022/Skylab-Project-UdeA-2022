@@ -51,16 +51,18 @@ export const obtenerProductosV = async (successCallback, errorCallback) => {
 
 
 
-export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
+export const obtenerVentas = async (setVentas, setEjecutarConsulta, successCallback, errorCallback) => {
   const options = { method: 'GET', url: 'http://localhost:5000/Ventas',
   headers: {Authorization: getToken(), }};
   await axios
     .request(options)
     .then(function (response) {
       setVentas(response.data);
+      
     })
     .catch(function (error) {
       console.error(error);
+    
     });
   setEjecutarConsulta(false);
 };

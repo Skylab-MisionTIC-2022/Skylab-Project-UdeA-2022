@@ -35,7 +35,7 @@ const Ventas = () => {
    useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
-      obtenerVentas(setVentas, setEjecutarConsulta);
+      obtenerVentas.map(setVentas, setEjecutarConsulta);
 
     }
   }, [ejecutarConsulta]);
@@ -142,13 +142,13 @@ const TablaVentas = ({ listaVentas, setEjecutarConsulta }) => {
         {ventasFiltrados.map((el) => {
           return (
             <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
-              <span>{el.idVenta}</span>
-              <span>{el.fecha}</span>
-              <span>{el.documento}</span>
-              <span>{el.cliente}</span>
-              <span>{el.vendedor}</span>
-              <span>{el.valorTotal}</span>
-              <span>{el.estado}</span>
+              <span>{el.idVenta}</span>,
+              <span>{el.fecha}</span>,
+              <span>{el.documento}</span>,
+              <span>{el.cliente}</span>,
+              <span>{el.vendedor}</span>,
+              <span>{el.valorTotal}</span>,
+              <span>{el.estado}</span>,
             </div>
           );
         })}
