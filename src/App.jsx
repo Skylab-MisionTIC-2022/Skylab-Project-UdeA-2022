@@ -15,7 +15,7 @@ function App() {
   return (
     <Auth0Provider domain="skylabtic.us.auth0.com"
       clientId="oKQDl3OEiRo10vHyzmgrGtVapysBsPGB"
-      redirectUri={window.location.origin}
+      redirectUri="http://localhost:3000/Home"
       audience= 'api-autenticacion'>
       <Router>
         <Switch>
