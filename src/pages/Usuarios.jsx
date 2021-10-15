@@ -92,7 +92,6 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
                         <tr>
 
                             <th>Nombre</th>
-                            <th>Apellido</th>
                             <th>Correo </th>
                             <th>Rol</th>
                             <th>Estado</th>
@@ -117,7 +116,6 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
                     return (
                         <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
                             <span>{el.name}</span>
-                            <span>{el.lastname}</span>
                             <span>{el.email}</span>
                             <span>{el.rol}</span>
                             <span>{el.status}</span>
@@ -134,7 +132,6 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
     const [openDialog, setOpenDialog] = useState(false);
     const [infoNuevoUsuario, setInfoNuevoUsuario] = useState({
         name: usuario.name,
-        lastname: usuario.lastname,
         email: usuario.email,
         rol: usuario.rol,
         status: usuario.status,
@@ -198,15 +195,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
                             value={infoNuevoUsuario.name}
                         />
                     </td>
-                    <td>
-                        <input readonly
-                            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-                            type='text'
-                            value={infoNuevoUsuario.lastname}
-
-
-                        />
-                    </td>
+                
                     <td>
                         <input
                             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
@@ -256,7 +245,6 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
             ) : (
                 <>
                     <td>{usuario.name}</td>
-                    <td>{usuario.lastname}</td>
                     <td>{usuario.email}</td>
                     <td>{usuario.rol}</td>
                     <td>{usuario.status}</td>
@@ -340,7 +328,6 @@ const FormularioCreacionUsuarios = ({ setMostrarTabla, listaUsuarios, setUsuario
             url: 'http://localhost:5000/usuarios/nuevo/',
             headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { name: nuevoUsuario.name, 
-                    lastname:nuevoUsuario.lastname,
                     email:nuevoUsuario.email, 
                     rol: nuevoUsuario.rol,
                     status:nuevoUsuario.status}
@@ -376,15 +363,7 @@ const FormularioCreacionUsuarios = ({ setMostrarTabla, listaUsuarios, setUsuario
                         required
                     />
                 </label>
-                <label className='flex flex-col' htmlFor='lastname'>
-                    Apellido
-                    <input
-                        name='lastname'
-                        className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-                        type='text'
-                        required
-                    />
-                </label>
+                
                 <label className='flex flex-col' htmlFor='email'>
                     Correo
                     <input
