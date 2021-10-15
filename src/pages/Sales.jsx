@@ -5,13 +5,12 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerVentas } from 'utils/api';
 import { crearVenta } from 'utils/api';
-import { obtenerProductosV } from 'utils/api';
 import { obtenerUsuariosV } from 'utils/api';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 const Ventas = () => {
-  const [mostrarTabla, setMostrarTabla] = useState(true);
+ /* const [mostrarTabla, setMostrarTabla] = useState(true);
   const [ventas, setVentas] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nueva Venta');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
@@ -660,7 +659,8 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   );
 
 
-
+   */
+return (<div> ventas</div>)
 
 
 
