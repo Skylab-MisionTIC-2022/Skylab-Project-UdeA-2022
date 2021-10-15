@@ -459,84 +459,90 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
   };
 
   return (
-    <div className='flex h-full w-full items-center justify-center'>
-      <form ref={form} onSubmit={submitForm} className='flex flex-col h-full'>
-        <h1 className='text-3xl font-extrabold text-gray-900 my-3'>Crear una nueva venta</h1>
-        <label className='flex flex-col' htmlFor='vendedor'>
-          <span className='text-2xl font-gray-900'>Vendedor</span>
-          <select name='vendedor' className='p-2' defaultValue='' required>
-            <option disabled value=''>
-              Seleccione un Vendedor
-            </option>
-            {vendedores.map((el) => {
-              return <option key={nanoid()} value={el._id}>{`${el.name} ${el.lastname}`}</option>;
-            })}
-          </select>
-        </label>
+    <div className="flex h-full w-full items-center justify-center ">
+      <form ref={form} onSubmit={submitForm} className="flex flex-col h-full">
+        <h1 className="text-3xl font-extrabold text-gray-900 my-3">
+          Crear una nueva venta
+        </h1>
+        <div className="flex flex-row mr-36">
+          <label className="flex flex-col" htmlFor="vendedor">
+            <span className="text-2xl font-gray-900">Vendedor</span>
+            <select name="vendedor" className="p-2" defaultValue="" required>
+              <option disabled value="">
+                Seleccione un Vendedor
+              </option>
+              {vendedores.map((el) => {
+                return (
+                  <option
+                    key={nanoid()}
+                    value={el._id}
+                  >{`${el.name} ${el.lastname}`}</option>
+                );
+              })}
+            </select>
+          </label>
 
-        <label className='flex flex-col' htmlFor='idVenta'>
-          ID venta
-          <input
-            name='idVenta'
-            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
-            placeholder='consecutivo venta'
-            required
-          />
-        </label>
-
-        <label className='flex flex-col' htmlFor='fecha'>
-          Fecha de venta
-          <input
-          name='fecha'
-          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='date'
-            placeholder='fecha hoy'
-            required
+          <label className="flex flex-col" htmlFor="idVenta">
+            ID venta
+            <input
+              name="idVenta"
+              className="bg-gray-50 border border-gray-600 p-2 rounded-lg m-2"
+              type="text"
+              placeholder="consecutivo venta"
+              required
             />
-           </label>
-           <label className='flex flex-col' htmlFor='documento'>
-          Documento cliente
-          <input
-          name='documento'
-          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
-            placeholder='1234'
-            required
+          </label>
+
+          <label className="flex flex-col" htmlFor="fecha">
+            Fecha de venta
+            <input
+              name="fecha"
+              className="bg-gray-50 border border-gray-600 p-2 rounded-lg m-2"
+              type="date"
+              placeholder="fecha hoy"
+              required
             />
-           </label>
-           <label className='flex flex-col' htmlFor='cliente'>
-          Nombre cliente
-          <input
-          name='cliente'
-          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
-            placeholder='Pedro Perez'
-            required
+          </label>
+        </div>
+        <div className="flex flex-row">
+          <label className="flex flex-col" htmlFor="documento">
+            Documento cliente
+            <input
+              name="documento"
+              className="bg-gray-50 border border-gray-600 p-2 rounded-lg m-2"
+              type="text"
+              placeholder="1234"
+              required
             />
-           </label>
+          </label>
+          <label className="flex flex-col" htmlFor="cliente">
+            Nombre cliente
+            <input
+              name="cliente"
+              className="bg-gray-50 border border-gray-600 p-2 rounded-lg m-2"
+              type="text"
+              placeholder="Pedro Perez"
+              required
+            />
+          </label>
 
-           <label className='flex flex-col' htmlFor='estado'>
-          Estado de la venta
-          <select
-            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            name='estado'
-            required
-            defaultValue={0}
-          >
-            
-            <option disabled value={0}>
-              Seleccione una opción
-            </option>
-            <option>Proceso</option>
-            <option>Cancelada</option>
-            <option>Entregada</option>
-
-          </select>
-        </label>
-
-
-
+          <label className="flex flex-col" htmlFor="estado">
+            Estado de la venta
+            <select
+              className="bg-gray-50 border border-gray-600 p-2 rounded-lg m-2"
+              name="estado"
+              required
+              defaultValue={0}
+            >
+              <option disabled value={0}>
+                Seleccione una opción
+              </option>
+              <option>Proceso</option>
+              <option>Cancelada</option>
+              <option>Entregada</option>
+            </select>
+          </label>
+        </div>
 
         <TablaProductos
           productos={productos}
@@ -544,18 +550,18 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
           setProductosTabla={setProductosTabla}
         />
 
-        <label className='flex flex-col'>
-          <span className='text-2xl font-gray-900'>Valor Total Venta</span>
+        <label className="flex flex-col">
+          <span className="text-2xl font-gray-900">Valor Total Venta</span>
           <input
-            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='number'
-            name='valor'
+            className="bg-gray-50 border border-gray-600 p-2 rounded-lg m-2"
+            type="number"
+            name="valor"
             required
           />
         </label>
         <button
-          type='submit'
-          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'
+          type="submit"
+          className="col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white"
         >
           Crear Venta
         </button>
