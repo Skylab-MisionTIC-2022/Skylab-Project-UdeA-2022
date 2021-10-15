@@ -3,14 +3,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
-import { obtenerVentas } from 'utils/api';
-import { crearVenta } from 'utils/api';
-import { obtenerUsuariosV } from 'utils/api';
+import { obtenerVentas, crearVenta, obtenerProductosV, obtenerUsuariosV, getToken } from 'utils/api';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 const Ventas = () => {
- /* const [mostrarTabla, setMostrarTabla] = useState(true);
+  const [mostrarTabla, setMostrarTabla] = useState(true);
   const [ventas, setVentas] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nueva Venta');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
@@ -175,7 +173,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
     const options = {
       method: 'PATCH',
       url: `http://localhost:5000/Ventas/${venta._id}/`,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { ...infoNuevaVenta, id: venta._id },
     };
 
@@ -197,7 +195,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
     const options = {
       method: 'DELETE',
       url: `http://localhost:5000/Ventas/${venta._id}/`,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { id: venta._id },
     };
 
@@ -658,46 +656,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   );
 
 
-   */
-return (<div> ventas</div>)
-
-
-
-
-
-
-
-
-
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 export  default Ventas

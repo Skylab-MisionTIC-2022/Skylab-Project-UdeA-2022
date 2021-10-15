@@ -7,10 +7,7 @@ export const getToken=()=>{
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   const options = { method: 'GET', url: 'http://localhost:5000/Productos',
-  headers: {
-    Authorization: getToken(),
- }
-};
+  headers: {Authorization: getToken(), }};
   await axios
     .request(options)
     .then(function (response) {
