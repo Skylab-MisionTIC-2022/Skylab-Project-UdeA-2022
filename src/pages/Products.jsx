@@ -11,7 +11,7 @@ const Productos = () => {
   const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
-  
+
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {
