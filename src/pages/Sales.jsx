@@ -4,7 +4,6 @@ import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerVentas, crearVenta, obtenerProductosV, obtenerUsuariosV, getToken } from 'utils/api';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 const Ventas = () => {
@@ -422,15 +421,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
 
     console.log('lista antes de cantidad', listaProductos);
 
-    Object.keys(formData).forEach((k) => {
-      if (k.includes('cantidad')) {
-        const indice = parseInt(k.split('_')[1]);
-        listaProductos[indice]['cantidad'] = formData[k];
-      }
-    });
-
-    console.log('lista despues de cantidad', listaProductos);
-
+   
     const datosVenta = {
       vendedor: vendedores.filter((v) => v._id === formData.vendedor)[0],
       idVenta: formData.idVenta,
@@ -441,8 +432,6 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
       valorTotal: formData.valor,
       productos: listaProductos,
     };
-
-    console.log('lista productos', listaProductos);
 
     await crearVenta(
       datosVenta,
@@ -575,11 +564,6 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   const [filasTabla, setFilasTabla] = useState([]);
 
   useEffect(() => {
-    console.log(productoAAgregar);
-  }, [productoAAgregar]);
-
-  useEffect(() => {
-    console.log('filasTabla', filasTabla);
     setProductosTabla(filasTabla);
   }, [filasTabla, setProductosTabla]);
 
@@ -592,6 +576,19 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
   const eliminarProducto = (productoAEliminar) => {
     setFilasTabla(filasTabla.filter((v) => v._id !== productoAEliminar._id));
     setProductos([...productos, productoAEliminar]);
+  };
+  const modificarProducto = (producto, cantidad, totalventa) => {
+    setFilasTabla(
+      filasTabla.map((ft) => {
+        if (ft.codigo === producto.codigo) {
+          ft.cantidad = cantidad;
+          ft.total = producto.valorunit * cantidad;
+        }
+        
+        return ft;
+      })
+    );
+   
   };
 
   return (
@@ -633,6 +630,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
             <th>descripcion</th>
             <th>precio</th>
             <th>Cantidad</th>
+            <th>valorTotal</th>
             <th>Eliminar</th>
             <th className='hidden'>Input</th>
           </tr>
@@ -640,32 +638,63 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
         <tbody>
           {filasTabla.map((el, index) => {
             return (
-              <tr key={nanoid()}>
-                <td>{el.codigo}</td>
-                <td>{el.descripcion}</td>
-                <td>{el.valorunit}</td>
-                <td>
-                  <label htmlFor={`valor_${index}`}>
-                    <input type='number' name={`cantidad_${index}`} />
-                  </label>
-                </td>
-                <td>
-                  <i
-                    onClick={() => eliminarProducto(el)}
-                    className='fas fa-minus text-red-500 cursor-pointer'
-                  />
-                </td>
-                <input hidden defaultValue={el.codigo} name={`producto_${index}`} />
-              </tr>
+              <FilaProducto
+              key={el._codigo}
+              prod={el}
+              index={index}
+              eliminarProducto={eliminarProducto}
+              modificarProducto={modificarProducto}
+            />
+
             );
           })}
         </tbody>
       </table>
     </div>
   );
-
-
 };
+const FilaProducto = ({ prod, index, eliminarProducto, modificarProducto }) => {
+  const [producto, setProducto] = useState(prod);
+  useEffect(() => {
+    console.log('prod', producto);
+  }, [producto]);
+  return (
+    <tr>
+      <td >{producto.codigo}</td>
+      <td>{producto.descripcion}</td>
+      <td>{producto.valorunit}</td>
 
+      <td>
+        <label htmlFor={`valor_${index}`}>
+          <input
+            type='number'
+            name={`cantidad_${index}`}
+            value={producto.cantidad}
+            onChange={(e) => {
+              modificarProducto(producto, e.target.value === '' ? '0' : e.target.value);
+              setProducto({
+                ...producto,
+                cantidad: e.target.value === '' ? '0' : e.target.value,
+                total:
+                  parseFloat(producto.valorunit) *
+                  parseFloat(e.target.value === '' ? '0' : e.target.value),
+              });
+            }}
+          />
+        </label>
+      </td>
+      <td>{parseFloat(producto.total ?? 0)}</td>
+      <td>
+        <i
+          onClick={() => eliminarProducto(producto)}
+          className='fas fa-minus text-red-500 cursor-pointer'
+        />
+      </td>
+      <td className='hidden'>
+        <input hidden defaultValue={producto.codigo} name={`producto_${index}`} />
+      </td>
+    </tr>
+  );
+};
 
 export  default Ventas
