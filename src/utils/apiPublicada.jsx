@@ -19,7 +19,20 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   setEjecutarConsulta(false);
 };
 
-
+// export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
+//   const options = { method: 'GET', url: 'http://localhost:5000/Ventas',
+//   headers: {
+//     Authorization: getToken(),
+//  } };
+//   await axios
+//     .request(options)
+//     .then(function (response) {
+//       setVentas(response.data);
+//     })
+//     .catch(function (error) {
+//       console.error(error);
+//     });
+//   setEjecutarConsulta(false);
 export const obtenerProductosV = async (successCallback, errorCallback) => {
   const options = { method: 'GET', url: 'http://localhost:5000/Productos/',
   headers: {
@@ -28,7 +41,13 @@ export const obtenerProductosV = async (successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-
+//export const obtenerVentas = async (successCallback, errorCallback) => {
+//  const options = { method: 'GET', url: 'http://localhost:5000/Ventas/',
+//  headers: {
+//    Authorization: getToken(),
+// } };
+ //// await axios.request(options).then(successCallback).catch(errorCallback);
+//};
 
 
 
@@ -45,6 +64,19 @@ export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
     });
   setEjecutarConsulta(false);
 };
+//export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
+ // const options = { method: 'GET', url: 'http://localhost:5000/Ventas' };
+ // await axios
+ //   .request(options)
+ //   .then(function (response) {
+ //     setVentas(response.data);
+ //   })
+  //  .catch(function (error) {
+  //    console.error(error);
+  //  });
+ // setEjecutarConsulta(false);
+//};
+
 
 
 // CRUD DE VENTAS
@@ -70,36 +102,32 @@ export const obtenerUsuariosV = async (successCallback, errorCallback) => {
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-// CRUD PARA USUARIOS
 
-export const obtenerUsuarios = async (successCallback, errorCallback) => {
-  const options = {
-    method: 'GET',
-    url: 'http://localhost:5000/usuarios',
-    headers: {
-      Authorization: getToken(),
-    },
-  };
+
+// get PARA USUARIOS
+export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/usuarios',
+  headers: {
+     Authorization: getToken(),
+  } };
+  await axios
+    .request(options)
+    .then(function (response) {
+      setUsuarios(response.data);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+  setEjecutarConsulta(false);
+};
+
+
+export const obtenerDatosUsuarios = async (successCallback, errorCallback) => {
+  const options = { method: 'GET', url: 'http://localhost:5000/usuarios/self',
+  headers: {
+    Authorization: getToken(),
+ } };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 
-export const obtenerDatosUsuario = async (successCallback, errorCallback) => {
-  const options = {
-    method: 'GET',
-    url: 'http://localhost:5000/usuarios/self',
-    headers: {
-      Authorization: getToken(), // 3. enviarle el token a backend
-    },
-  };
-  await axios.request(options).then(successCallback).catch(errorCallback);
-};
 
-export const editarUsuario = async (id, data, successCallback, errorCallback) => {
-  const options = {
-    method: 'PATCH',
-    url: `http://localhost:5000/usuarios/${id}/`,
-    headers: { 'Content-Type': 'application/json', Authorization: getToken() },
-    data,
-  };
-  await axios.request(options).then(successCallback).catch(errorCallback);
-};
