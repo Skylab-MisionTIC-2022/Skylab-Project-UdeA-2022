@@ -26,7 +26,7 @@ const PrivateRoute = (children) => {
 
             );
             
-        }
+        };
         if (isAuthenticated) {
             fetchAuth0token();
         }
@@ -47,4 +47,4 @@ const PrivateRoute = (children) => {
 
 }
 
-export default PrivateRoute
+export default PrivateRoute;
