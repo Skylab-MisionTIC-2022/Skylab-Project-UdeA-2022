@@ -3,23 +3,29 @@ import { useAuth0, getAccessTokenSilently } from "@auth0/auth0-react";
 import { useEffect, useState, useRef } from 'react';
 import ReactLoading from 'react-loading';
 import { obtenerDatosUsuarios } from 'utils/api';
+import { useUser } from 'context/userContext'; 
 
 const PrivateRoute = (children) => {
     const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+    const { setUserData } = useUser(); 
+
     useEffect(() => {
         const fetchAuth0token = async () => {
             const access = await getAccessTokenSilently({
                 audience: 'api-autenticacion',
             });
             localStorage.setItem('token', access);
+            console.log(access);
+
             await obtenerDatosUsuarios((response) => {
-                console.log(response);
+                console.log("respuesta de obtener usuarios", response); 
+                // setUserData(response.data);
             },(err)=>{
                 console.log(err);
             }
 
             );
-            console.log(access);
+            
         }
         if (isAuthenticated) {
             fetchAuth0token();

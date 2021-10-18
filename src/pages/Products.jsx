@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateComponent from 'components/PrivateComponent';
 
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -244,6 +245,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
        
         </>
       )}
+      <PrivateComponent roleList={['admin']}>
       <td>
         <div className='flex w-full justify-around'>
           {edit ? (
@@ -300,6 +302,8 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           </div>
         </Dialog>
       </td>
+      </PrivateComponent>
+
     </tr>
   );
 };
