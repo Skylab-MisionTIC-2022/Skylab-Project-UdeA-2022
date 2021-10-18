@@ -9,58 +9,43 @@ import ReactLoading from 'react-loading';
 import { obtenerDatosUsuario } from 'utils/api';
 import { useUser } from 'context/userContext';
 
-const PrivateLayout = ({ children }) => {
-  const { isAuthenticated, isLoading, loginWithRedirect, getAccessTokenSilently, logout } =
-    useAuth0();
-  const [loadingUserInformation, setLoadingUserInformation] = useState(false);
-  const { setUserData } = useUser();
-
+const PrivateLayout = (children) => {
+  const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
   useEffect(() => {
-    const fetchAuth0Token = async () => {
-      // si se quieren hacer validaciones con el token:
-      // if (localStorage.getItem('token')) {
-      //   // validar fecha de expiracion del token
-      // } else {
-      //   // pedir token
-      // }
+      const fetchAuth0token = async () => {
+          const access = await getAccessTokenSilently({
+              audience: 'api-autenticacion',
+          });
+          localStorage.setItem('token', access);
+          await obtenerDatosUsuario((response) => {
+              console.log(response);
+          },(err)=>{
+              console.log(err);
+          }
 
-      // 1. pedir token a auth0
-      setLoadingUserInformation(true);
-      const accessToken = await getAccessTokenSilently({
-        audience: `api-autenticacion`,
-      });
-      // 2. recibir token de auth0
-      localStorage.setItem('token', accessToken);
-      console.log(accessToken);
-      // 3. enviarle el token a el backend
-      await obtenerDatosUsuario(
-        (response) => {
-          console.log('response con datos del usuario', response);
-          setUserData(response.data);
-          setLoadingUserInformation(false);
-        },
-        (err) => {
-          console.log('err', err);
-          setLoadingUserInformation(false);
-          logout({ returnTo: 'http://localhost:3000/Home' });
-        }
-      );
-    };
-    if (isAuthenticated) {
-      fetchAuth0Token();
-    }
+          );
+          console.log(access);
+      }
+      if (isAuthenticated) {
+          fetchAuth0token();
+      }
+
+
   }, [isAuthenticated, getAccessTokenSilently]);
 
-  if (isLoading || loadingUserInformation)
-    return <ReactLoading type='cylon' color='#abc123' height={667} width={375} />;
 
-  if (!isAuthenticated) {
-    return loginWithRedirect();
+
+  if (isLoading) {
+      return (
+          <div class="flex justify-center">
+              <ReactLoading type={"cylon"} color={'#21507A'} height={'20%'} width={'20%'} />
+          </div>)
   }
+
+  return isAuthenticated ? <>{children.children} </> : <div>No estas autorizado</div>
 
     return (
         <div>
-            <PrivateRoute> 
                 <div >
                     <Navbar />
                     <div className="flex w-screen h-screen">
@@ -69,7 +54,6 @@ const PrivateLayout = ({ children }) => {
                         <main className="flex w-full ">{children}</main>
                     </div>
                 </div>
-                </PrivateRoute> 
         </div>
     )
 }

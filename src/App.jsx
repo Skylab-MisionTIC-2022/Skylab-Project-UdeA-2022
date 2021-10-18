@@ -4,6 +4,7 @@ import Products from 'pages/Products';
 import Sales from 'pages/Sales';
 import Usuarios from 'pages/Usuarios';
 import PrivateLayout from 'layouts/PrivateLayout';
+import PublicLayout from 'layouts/PublicLayout';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'css/styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -60,7 +61,9 @@ function App() {
                   </Switch>
                 </PrivateLayout>
               </Route>
+              <PublicLayout>
               <Index />
+              </PublicLayout>        
             </Switch>
           </Router>
       

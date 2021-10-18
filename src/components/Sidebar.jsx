@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 import useActiveRoute from 'hooks/useActiveRoute';
+import { useAuth0 } from '@auth0/auth0-react';
+import PrivateComponent from './PrivateComponent';
+
 
 const Sidebar = () => {
     return (
@@ -32,7 +35,9 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400">
+                <PrivateComponent roleList={['Administrador']}>
                   <Link className="btn-side" to="/usuarios">Usuarios</Link>
+                  </PrivateComponent>
                 </li>
               </ul>
             </div>
@@ -51,7 +56,9 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400">
+                <PrivateComponent roleList={['Administrador']}>
                   <Link className="btn-side" to="/products">Productos</Link>
+                 </PrivateComponent>
                 </li>
               </ul>
             </div>
@@ -72,7 +79,9 @@ const Sidebar = () => {
             <div>
               <ul>
                 <li className="text-gray-400">
+                <PrivateComponent roleList={['Administrador', 'Vendedor']}>
                   <Link className="btn-side" to='/Sales'>Ventas</Link>
+                  </PrivateComponent>
                 </li>
               </ul>
             </div>
@@ -81,5 +90,29 @@ const Sidebar = () => {
       </div>
     );
 }
-
+const Ruta = ({ icono, ruta, nombre, usuario }) => {
+  console.log('usuario', usuario);
+  const isActive = useActiveRoute(ruta);
+  return (
+    <Link to={ruta}>
+      <button
+        className={`p-1 my-2  bg-${
+          isActive ? 'indigo' : 'gray'
+        }-700 hover:bg-indigo-900 flex w-full items-center text-white rounded-md`}
+      >
+        {usuario ? (
+          <>
+            <img src={usuario.picture} className='h-5 w-5 rounded-full' />
+            {usuario.name}
+          </>
+        ) : (
+          <>
+            <i className={`${icono} w-10`} />
+            {nombre}
+          </>
+        )}
+      </button>
+    </Link>
+  );
+};
 export default Sidebar

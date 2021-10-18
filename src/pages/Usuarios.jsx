@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerUsuarios, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
-
+import PrivateComponent from 'components/PrivateComponent';
 
 const Usuarios = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);
@@ -42,6 +42,7 @@ const Usuarios = () => {
                 <h4 className='text-3xl font-extrabold text-gray-900'>
                     Administración de usuarios
                 </h4>
+                <PrivateComponent roleList={['Administrador']}>
                 <button
                     onClick={() => {
                         setMostrarTabla(!mostrarTabla);
@@ -50,6 +51,7 @@ const Usuarios = () => {
                 >
                     {textoBoton}
                 </button>
+                </PrivateComponent>
             </div>
             {mostrarTabla ? (
                 <TablaUsuarios listaUsuarios={usuarios} setEjecutarConsulta={setEjecutarConsulta} />
