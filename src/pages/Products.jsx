@@ -209,7 +209,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           <td>
             <input
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-              type='text'
+              type='number'
               value={infoNuevoProducto.valorunit}
               onChange={(e) =>
                 setInfoNuevoProducto({ ...infoNuevoProducto, valorunit: e.target.value })
@@ -368,8 +368,8 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
           <input
           name='valorunit'
           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-            type='text'
-            placeholder='70.000'
+            type='number'
+            placeholder='70000'
             required
             />
            </label>
