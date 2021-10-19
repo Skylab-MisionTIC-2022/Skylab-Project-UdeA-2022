@@ -219,15 +219,15 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
       {edit ? (
         <>
           <td>
-            <input
+            <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-              type='text'
+              type='number'
               value={infoNuevaVenta.idVenta}
-              onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta,   idVenta: e.target.value })}
+ //             onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta,   idVenta: e.target.value })}
             />
           </td>
           <td>
-          <input
+          <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='date'
               value={infoNuevaVenta.fecha}
@@ -235,7 +235,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
             />
           </td>
           <td>
-          <input
+          <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
               value={infoNuevaVenta.documento}
@@ -243,7 +243,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
             />
           </td>
           <td>
-          <input
+          <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
               value={infoNuevaVenta.cliente}
@@ -251,7 +251,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
             />
           </td>
           <td>       
-            <input
+            <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
               type='text'
               value={infoNuevaVenta.vendedor}
@@ -261,9 +261,9 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
             />
           </td>
           <td>
-            <input
+            <input readonly
               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-              type='text'
+              type='number'
               value={infoNuevaVenta.valorTotal}
               onChange={(e) =>
                 setInfoNuevaVenta({ ...infoNuevaVenta, valorTotal: e.target.value })
@@ -418,7 +418,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
       })
       .filter((v) => v);
 
-    console.log('lista antes de cantidad', listaProductos);
+    
 
    
     const datosVenta = {
@@ -568,15 +568,15 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
 
   const agregarNuevoProducto = () => {
     setFilasTabla([...filasTabla, productoAAgregar]);
-    setProductos(productos.filter((v) => v._id !== productoAAgregar._id));
+    setProductos(productos.filter((v) => v.codigo !== productoAAgregar.codigo));
     setProductoAAgregar({});
   };
 
   const eliminarProducto = (productoAEliminar) => {
-    setFilasTabla(filasTabla.filter((v) => v._id !== productoAEliminar._id));
+    setFilasTabla(filasTabla.filter((v) => v.codigo !== productoAEliminar.codigo));
     setProductos([...productos, productoAEliminar]);
   };
-  const modificarProducto = (producto, cantidad, totalventa) => {
+  const modificarProducto = (producto, cantidad) => {
     setFilasTabla(
       filasTabla.map((ft) => {
         if (ft.codigo === producto.codigo) {
@@ -629,7 +629,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
             <th>descripcion</th>
             <th>precio</th>
             <th>Cantidad</th>
-            <th>valorTotal</th>
+            <th>valor Total Prod</th>
             <th>Eliminar</th>
             <th className='hidden'>Input</th>
           </tr>
@@ -638,7 +638,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
           {filasTabla.map((el, index) => {
             return (
               <FilaProducto
-              key={el._codigo}
+              key={el.codigo}
               prod={el}
               index={index}
               eliminarProducto={eliminarProducto}
