@@ -3,9 +3,9 @@ import React from 'react'
 
 const PrivateComponent = ({ roleList, children }) => {
     const { userData } = useUser();
-    console.log("user DAta en Private Componet", userData);
+    console.log("user data en Private Componet", userData);
 
-    if (roleList.includes('admin')){
+    if (roleList.includes(userData.rol)){
         return children; 
     }
     return <></>;

@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 
-export const userContext = createContext(null);
+export const UserContext = createContext(null);
 
 export const useUser = () => {
-  return useContext(userContext);
+  return useContext(UserContext);
 };

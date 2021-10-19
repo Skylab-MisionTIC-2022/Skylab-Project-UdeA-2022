@@ -1,6 +1,5 @@
-import React from 'react'
-import { useAuth0, getAccessTokenSilently } from "@auth0/auth0-react";
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react'
+import { useAuth0 } from "@auth0/auth0-react";
 import ReactLoading from 'react-loading';
 import { obtenerDatosUsuarios } from 'utils/api';
 import { useUser } from 'context/userContext'; 
@@ -19,7 +18,7 @@ const PrivateRoute = (children) => {
 
             await obtenerDatosUsuarios((response) => {
                 console.log("respuesta de obtener usuarios", response); 
-                // setUserData(response.data);
+                setUserData(response.data);
             },(err)=>{
                 console.log(err);
             }

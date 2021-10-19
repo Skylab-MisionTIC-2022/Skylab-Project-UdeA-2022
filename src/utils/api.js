@@ -126,7 +126,7 @@ export const obtenerDatosUsuarios = async (successCallback, errorCallback) => {
   const options = { method: 'GET', url: 'http://localhost:5000/usuarios/self',
   headers: {
     Authorization: getToken(),
- } };
+ }, };
   await axios.request(options).then(successCallback).catch(errorCallback);
 };
 

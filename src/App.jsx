@@ -11,17 +11,17 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CrearVenta from 'pages/CrearVenta';
 import EditarVenta from 'pages/EditarVenta';
 import { Auth0Provider } from "@auth0/auth0-react";
-import { userContext } from 'context/userContext';
+import { UserContext } from 'context/userContext';
 
 function App() {
-  const {userData, setUserData} = useState({});
+  const [userData, setUserData] = useState({});
 
   return (
     <Auth0Provider domain="skylabtic.us.auth0.com"
       clientId="oKQDl3OEiRo10vHyzmgrGtVapysBsPGB"
       redirectUri="http://localhost:3000/Home"
       audience= 'api-autenticacion'>
-      <userContext.Provider value={{ userData, setUserData }}>
+      <UserContext.Provider value={{ userData, setUserData }}>
         <Router>
           <Switch>
             <Route path="/Home" exact>
@@ -58,7 +58,7 @@ function App() {
 
           </Switch>
         </Router>
-      </userContext.Provider>  
+      </UserContext.Provider>  
 
     </Auth0Provider>
   );
