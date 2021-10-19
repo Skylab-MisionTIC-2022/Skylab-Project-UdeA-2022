@@ -145,7 +145,7 @@ const TablaVentas = ({ listaVentas, setEjecutarConsulta }) => {
               <span>{el.fecha}</span>
               <span>{el.documento}</span>
               <span>{el.cliente}</span>
-              <span>{el.vendedor}</span>
+              <span>{el.vendedor.name}</span>
               <span>{el.valorTotal}</span>
               <span>{el.estado}</span>
             </div>
@@ -164,12 +164,11 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
     fecha: venta.fecha,
     documento: venta.documento,
     cliente: venta.cliente,
-    vendedor: venta.vendedor,
+    vendedor: venta.name,
     valorTotal: venta.valorTotal,
     estado: venta.estado
   
   });
-
   const actualizarVenta = async () => {
     //enviar la info al backend
     const options = {
@@ -297,7 +296,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
           <td >{venta.fecha}</td>
           <td>{venta.documento}</td>
           <td>{venta.cliente}</td>
-          <td>{venta.vendedor}</td>
+          <td>{venta.vendedor.name} </td>
           <td>{venta.valorTotal}</td>
           <td>{venta.estado}</td>
        
@@ -465,7 +464,7 @@ const FormularioCreacionVentas = ({ setMostrarTabla, listaVentas, setVentas }) =
                   <option
                     key={nanoid()}
                     value={el._id}
-                  >{`${el.name} ${el.lastname}`}</option>
+                  >{`${el.family_name} ${el.given_name}`}</option>
                 );
               })}
             </select>
@@ -698,3 +697,4 @@ const FilaProducto = ({ prod, index, eliminarProducto, modificarProducto }) => {
 };
 
 export  default Ventas
+
