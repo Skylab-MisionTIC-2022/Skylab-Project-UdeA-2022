@@ -141,272 +141,272 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   
   });
 
-//   const actualizarProducto = async () => {
-//     //enviar la info al backend
-//     const options = {
-//       method: 'PATCH',
-//       url: `${baseURL}/Productos/${producto._id}/`,
-//       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
-//       data: { ...infoNuevoProducto, id: producto._id },
-//     };
+  const actualizarProducto = async () => {
+    //enviar la info al backend
+    const options = {
+      method: 'PATCH',
+      url: `${baseURL}/Productos/${producto._id}/`,
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
+      data: { ...infoNuevoProducto, id: producto._id },
+    };
 
-//     await axios
-//       .request(options)
-//       .then(function (response) {
-//         console.log(response.data);
-//         toast.success('Producto modificado con éxito');
-//         setEdit(false);
-//         setEjecutarConsulta(true);
-//       })
-//       .catch(function (error) {
-//         toast.error('Error modificando el producto');
-//         console.error(error);
-//       });
-//   };  
+    await axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        toast.success('Producto modificado con éxito');
+        setEdit(false);
+        setEjecutarConsulta(true);
+      })
+      .catch(function (error) {
+        toast.error('Error modificando el producto');
+        console.error(error);
+      });
+  };  
 
-//   const eliminarProducto = async () => {
-//     const options = {
-//       method: 'DELETE',
-//       url: `${baseURL}/Productos/${producto._id}/`,
-//       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
-//       data: { id: producto._id },
-//     };
+  const eliminarProducto = async () => {
+    const options = {
+      method: 'DELETE',
+      url: `${baseURL}/Productos/${producto._id}/`,
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
+      data: { id: producto._id },
+    };
 
-//     await axios
-//       .request(options)
-//       .then(function (response) {
-//         console.log(response.data);
-//         toast.success('producto eliminado con éxito');
-//         setEjecutarConsulta(true);  
-//       })
-//       .catch(function (error) {
-//         console.error(error);
-//         toast.error('Error eliminando el producto');
-//       });
-//     setOpenDialog(false);
-//   };
+    await axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        toast.success('producto eliminado con éxito');
+        setEjecutarConsulta(true);  
+      })
+      .catch(function (error) {
+        console.error(error);
+        toast.error('Error eliminando el producto');
+      });
+    setOpenDialog(false);
+  };
 
-//   return (
-//     <tr>
-//       {edit ? (
-//         <>
-//           <td>
-//             <input
-//               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//               type='text'
-//               value={infoNuevoProducto.codigo}
-//               onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, codigo: e.target.value })}
-//             />
-//           </td>
-//           <td>
-//             <input
-//               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//               type='text'
-//               value={infoNuevoProducto.descripcion}
-//               onChange={(e) =>
-//                 setInfoNuevoProducto({ ...infoNuevoProducto, descripcion: e.target.value })
-//               }
-//             />
-//           </td>
-//           <td>
-//             <input
-//               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//               type='number'
-//               value={infoNuevoProducto.valorunit}
-//               onChange={(e) =>
-//                 setInfoNuevoProducto({ ...infoNuevoProducto, valorunit: e.target.value })
-//               }
-//             />
-//           </td>
-//           <td>
-//           <select
-//               className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//               type='text'
-//               value={infoNuevoProducto.estado}
-//               onChange={(e) =>
-//                 setInfoNuevoProducto({ ...infoNuevoProducto, estado: e.target.value })
-//               }
-//               defaultValue={0}
-//               >
-//               <option disabled value={0}>
-//                 Seleccione una opción
-//               </option>
-//               <option>Disponible</option>
-//               <option>No disponible</option>
+  return (
+    <tr>
+      {edit ? (
+        <>
+          <td>
+            <input
+              className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+              type='text'
+              value={infoNuevoProducto.codigo}
+              onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, codigo: e.target.value })}
+            />
+          </td>
+          <td>
+            <input
+              className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+              type='text'
+              value={infoNuevoProducto.descripcion}
+              onChange={(e) =>
+                setInfoNuevoProducto({ ...infoNuevoProducto, descripcion: e.target.value })
+              }
+            />
+          </td>
+          <td>
+            <input
+              className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+              type='number'
+              value={infoNuevoProducto.valorunit}
+              onChange={(e) =>
+                setInfoNuevoProducto({ ...infoNuevoProducto, valorunit: e.target.value })
+              }
+            />
+          </td>
+          <td>
+          <select
+              className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+              type='text'
+              value={infoNuevoProducto.estado}
+              onChange={(e) =>
+                setInfoNuevoProducto({ ...infoNuevoProducto, estado: e.target.value })
+              }
+              defaultValue={0}
+              >
+              <option disabled value={0}>
+                Seleccione una opción
+              </option>
+              <option>Disponible</option>
+              <option>No disponible</option>
   
-//               </select>
-//             </td>
-//           </>
-//       ) : (
-//         <>
-//           <td >{producto.codigo}</td>
-//           <td>{producto.descripcion}</td>
-//           <td>{producto.valorunit}</td>
-//           <td>{producto.estado}</td>
+              </select>
+            </td>
+          </>
+      ) : (
+        <>
+          <td >{producto.codigo}</td>
+          <td>{producto.descripcion}</td>
+          <td>{producto.valorunit}</td>
+          <td>{producto.estado}</td>
        
-//         </>
-//       )}
-//       <td>
-//         <div className='flex w-full justify-around'>
-//           {edit ? (
-//             <>
-//               <Tooltip title='Confirmar Edición' arrow>
-//                 <i
-//                   onClick={() => actualizarProducto()}
-//                   className='fas fa-check text-green-700 hover:text-green-500'
-//                 />
-//               </Tooltip>
-//               <Tooltip title='Cancelar edición' arrow>
-//                 <i
-//                   onClick={() => setEdit(!edit)}
-//                   className='fas fa-ban text-yellow-700 hover:text-yellow-500'
-//                 />
-//               </Tooltip>
-//             </>
-//           ) : (
-//             <>
-//               <Tooltip title='Editar Producto' arrow>
-//                 <i
-//                   onClick={() => setEdit(!edit)}
-//                   className='fas fa-pencil-alt text-yellow-700 hover:text-yellow-500'
-//                 />
-//               </Tooltip>
-//               <Tooltip title='Eliminar Producto' arrow>
-//                 <i
-//                   onClick={() => setOpenDialog(true)}
-//                   className='fas fa-trash text-red-700 hover:text-red-500'
-//                 />
-//               </Tooltip>
-//             </>
-//           )}
-//         </div>
-//         <Dialog open={openDialog}>
-//           <div className='p-8 flex flex-col'>
-//             <h1 className='text-gray-900 text-2xl font-bold'>
-//               ¿Está seguro de querer eliminar el producto?
-//             </h1>
-//             <div className='flex w-full items-center justify-center my-4'>
-//               <button
-//                 onClick={() => eliminarProducto()}
-//                 className='mx-2 px-4 py-2 bg-green-500 text-white hover:bg-green-700 rounded-md shadow-md'
-//               >
-//                 Sí
-//               </button>
-//               <button
-//                 onClick={() => setOpenDialog(false)}
-//                 className='mx-2 px-4 py-2 bg-red-500 text-white hover:bg-red-700 rounded-md shadow-md'
-//               >
-//                 No
-//               </button>
-//             </div>
-//           </div>
-//         </Dialog>
-//       </td>
-//     </tr>
-//   );
-// };
+        </>
+      )}
+      <td>
+        <div className='flex w-full justify-around'>
+          {edit ? (
+            <>
+              <Tooltip title='Confirmar Edición' arrow>
+                <i
+                  onClick={() => actualizarProducto()}
+                  className='fas fa-check text-green-700 hover:text-green-500'
+                />
+              </Tooltip>
+              <Tooltip title='Cancelar edición' arrow>
+                <i
+                  onClick={() => setEdit(!edit)}
+                  className='fas fa-ban text-yellow-700 hover:text-yellow-500'
+                />
+              </Tooltip>
+            </>
+          ) : (
+            <>
+              <Tooltip title='Editar Producto' arrow>
+                <i
+                  onClick={() => setEdit(!edit)}
+                  className='fas fa-pencil-alt text-yellow-700 hover:text-yellow-500'
+                />
+              </Tooltip>
+              <Tooltip title='Eliminar Producto' arrow>
+                <i
+                  onClick={() => setOpenDialog(true)}
+                  className='fas fa-trash text-red-700 hover:text-red-500'
+                />
+              </Tooltip>
+            </>
+          )}
+        </div>
+        <Dialog open={openDialog}>
+          <div className='p-8 flex flex-col'>
+            <h1 className='text-gray-900 text-2xl font-bold'>
+              ¿Está seguro de querer eliminar el producto?
+            </h1>
+            <div className='flex w-full items-center justify-center my-4'>
+              <button
+                onClick={() => eliminarProducto()}
+                className='mx-2 px-4 py-2 bg-green-500 text-white hover:bg-green-700 rounded-md shadow-md'
+              >
+                Sí
+              </button>
+              <button
+                onClick={() => setOpenDialog(false)}
+                className='mx-2 px-4 py-2 bg-red-500 text-white hover:bg-red-700 rounded-md shadow-md'
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </Dialog>
+      </td>
+    </tr>
+  );
+};
 
-// const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProductos }) => {
-//   const form = useRef(null);
+const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProductos }) => {
+  const form = useRef(null);
 
-//   const submitForm = async (e) => {
-//     e.preventDefault();
-//     const fd = new FormData(form.current);
+  const submitForm = async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form.current);
 
-//     const nuevoProducto = {};
-//     fd.forEach((value, key) => {
-//       nuevoProducto[key] = value;
-//     });
+    const nuevoProducto = {};
+    fd.forEach((value, key) => {
+      nuevoProducto[key] = value;
+    });
 
-//     const options = {
-//       method: 'POST',
-//       url: `${baseURL}/Productos/Nuevo/`,
-//       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
-//       data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
+    const options = {
+      method: 'POST',
+      url: `${baseURL}/Productos/Nuevo/`,
+      headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
+      data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
     
-//     };
+    };
   
    
-//     await axios
-//       .request(options)
-//       .then(function (response) {
-//         console.log(response.data);
-//         toast.success('Producto agregado con éxito');
-//       })
-//       .catch(function (error) {
-//         console.error(error);
-//         toast.error('Error creando un producto');
-//       });
+    await axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+        toast.success('Producto agregado con éxito');
+      })
+      .catch(function (error) {
+        console.error(error);
+        toast.error('Error creando un producto');
+      });
 
-//     setMostrarTabla(true);
-//   };
+    setMostrarTabla(true);
+  };
 
-//   return (
-//     <div className='flex flex-col items-center justify-center'>
-//       <h2 className='text-2xl font-extrabold text-gray-800'>Crear nuevo producto</h2>
-//       <form ref={form} onSubmit={submitForm} className='flex flex-col'>
-//         <label className='flex flex-col' htmlFor='codigo'>
-//           Codigo del producto
-//           <input
-//             name='codigo'
-//             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//             type='text'
-//             placeholder='AB006'
-//             required
-//           />
-//         </label>
-//         <label className='flex flex-col' htmlFor='descripcion'>
-//           Descripción del producto
-//           <input
-//           name='descripcion'
-//           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//             type='text'
-//             placeholder='blusa deportiva'
-//             required
-//             />
-//            </label>
-//            <label className='flex flex-col' htmlFor='valorunit'>
-//             Valor Unitario
-//           <input
-//           name='valorunit'
-//           className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//             type='number'
-//             placeholder='70000'
-//             required
-//             />
-//            </label>
-//         <label className='flex flex-col' htmlFor='estado'>
-//           Estado del producto
-//           <select
-//             className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
-//             name='estado'
-//             required
-//             defaultValue={0}
-//           >
+  return (
+    <div className='flex flex-col items-center justify-center'>
+      <h2 className='text-2xl font-extrabold text-gray-800'>Crear nuevo producto</h2>
+      <form ref={form} onSubmit={submitForm} className='flex flex-col'>
+        <label className='flex flex-col' htmlFor='codigo'>
+          Codigo del producto
+          <input
+            name='codigo'
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='AB006'
+            required
+          />
+        </label>
+        <label className='flex flex-col' htmlFor='descripcion'>
+          Descripción del producto
+          <input
+          name='descripcion'
+          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='text'
+            placeholder='blusa deportiva'
+            required
+            />
+           </label>
+           <label className='flex flex-col' htmlFor='valorunit'>
+            Valor Unitario
+          <input
+          name='valorunit'
+          className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            type='number'
+            placeholder='70000'
+            required
+            />
+           </label>
+        <label className='flex flex-col' htmlFor='estado'>
+          Estado del producto
+          <select
+            className='bg-gray-50 border border-gray-600 p-2 rounded-lg m-2'
+            name='estado'
+            required
+            defaultValue={0}
+          >
             
-//             <option disabled value={0}>
-//               Seleccione una opción
-//             </option>
-//             <option>Disponible</option>
-//             <option>No disponible</option>
+            <option disabled value={0}>
+              Seleccione una opción
+            </option>
+            <option>Disponible</option>
+            <option>No disponible</option>
 
-//           </select>
-//         </label>
+          </select>
+        </label>
           
  
-//         <label>
+        <label>
 
 
-//         </label>
-//         <button
-//           type='submit'
-//           className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white buttonblue'
-//         >
-//           Guardar producto
-//         </button>
-//       </form>
-//     </div>
-//   );
+        </label>
+        <button
+          type='submit'
+          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white buttonblue'
+        >
+          Guardar producto
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export  default Productos
