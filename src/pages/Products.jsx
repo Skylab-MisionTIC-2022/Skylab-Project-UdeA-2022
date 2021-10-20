@@ -6,6 +6,7 @@ import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
 
+// const baseURL = "http://localhost:5000"
 const baseURL = "https://pacific-retreat-26412.herokuapp.com";
 
 const Productos = () => {

@@ -7,12 +7,17 @@ export const getToken=()=>{
 const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: `${baseURL}/Productos`,
-  headers: {Authorization: getToken(), }};
+  const options = { 
+    method: 'GET', 
+    url: `${baseURL}/Productos/`,
+    headers: {
+      Authorization: getToken(), 
+    }};
+    
   await axios
     .request(options)
     .then(function (response) {
-      setProductos(response.data);
+      setProductos(response.data);  
     })
     .catch(function (error) {
       console.error(error);
@@ -53,7 +58,7 @@ export const obtenerProductosV = async (successCallback, errorCallback) => {
 
 
 export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: `${baseURL}/Ventas`,
+  const options = { method: 'GET', url: `${baseURL}/Ventas/`,
   headers: {Authorization: getToken(), }};
   await axios
     .request(options)
@@ -96,7 +101,7 @@ export const crearVenta = async (data, successCallback, errorCallback) => {
 // CRUD PARA USUARIOS
 
 export const obtenerUsuariosV = async (successCallback, errorCallback) => {
-  const options = { method: 'GET', url: `${baseURL}/Usuarios`,
+  const options = { method: 'GET', url: `${baseURL}/Usuarios/`,
   headers: {
     Authorization: getToken(),
  } };
@@ -107,7 +112,7 @@ export const obtenerUsuariosV = async (successCallback, errorCallback) => {
 
 // get PARA USUARIOS
 export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: `${baseURL}/usuarios`,
+  const options = { method: 'GET', url: `${baseURL}/usuarios/`,
   headers: {
      Authorization: getToken(),
   } };
