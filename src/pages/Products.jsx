@@ -6,13 +6,14 @@ import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
 
+const baseURL = "https://pacific-retreat-26412.herokuapp.com";
+
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
   const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
-  const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
-
+  
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
     if (ejecutarConsulta) {

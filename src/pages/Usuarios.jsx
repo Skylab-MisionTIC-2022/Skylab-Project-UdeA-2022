@@ -7,12 +7,14 @@ import { obtenerUsuarios, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
+
 const Usuarios = () => {
     const [mostrarTabla, setMostrarTabla] = useState(true);
     const [usuarios, setUsuarios] = useState([]);
     const [textoBoton, setTextoBoton] = useState('Crear Nuevo Usuario');
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
-    const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
+    
 
     useEffect(() => {
         console.log('consulta', ejecutarConsulta);
