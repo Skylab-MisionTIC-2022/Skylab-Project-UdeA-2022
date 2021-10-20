@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 const Navbar = () => {
   const { logout } = useAuth0();
   const cerrarsesion =()=>{
-    logout({ returnTo: 'http://localhost:3000/' });
+    logout({ returnTo: 'https://pacific-retreat-26412.herokuapp.com/' });
     localStorage.setItem('token',null);
   }
     return (

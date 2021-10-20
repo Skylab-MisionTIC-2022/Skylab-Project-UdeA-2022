@@ -15,7 +15,7 @@ function App() {
   return (
     <Auth0Provider domain="skylabtic.us.auth0.com"
       clientId="oKQDl3OEiRo10vHyzmgrGtVapysBsPGB"
-      redirectUri="http://localhost:3000/Home"
+      redirectUri="https://pacific-retreat-26412.herokuapp.com/Home"
       audience= 'api-autenticacion'>
       <Router>
         <Switch>

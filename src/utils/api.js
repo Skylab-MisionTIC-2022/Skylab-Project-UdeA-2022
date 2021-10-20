@@ -4,9 +4,10 @@ export const getToken=()=>{
   return `Bearer ${localStorage.getItem('token')}`
 }
 
+const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/Productos',
+  const options = { method: 'GET', url: `${baseURL}/Productos`,
   headers: {Authorization: getToken(), }};
   await axios
     .request(options)
@@ -20,7 +21,7 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
 };
 
 // export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
-//   const options = { method: 'GET', url: 'http://localhost:5000/Ventas',
+//   const options = { method: 'GET', url: `${baseURL}Ventas}`,
 //   headers: {
 //     Authorization: getToken(),
 //  } };
@@ -34,7 +35,7 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
 //     });
 //   setEjecutarConsulta(false);
 export const obtenerProductosV = async (successCallback, errorCallback) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/Productos/',
+  const options = { method: 'GET', url: `${baseURL}/Productos/`,
   headers: {
     Authorization: getToken(),
  } };
@@ -42,7 +43,7 @@ export const obtenerProductosV = async (successCallback, errorCallback) => {
 };
 
 //export const obtenerVentas = async (successCallback, errorCallback) => {
-//  const options = { method: 'GET', url: 'http://localhost:5000/Ventas/',
+//  const options = { method: 'GET', url: '${baseURL}Ventas/',
 //  headers: {
 //    Authorization: getToken(),
 // } };
@@ -52,7 +53,7 @@ export const obtenerProductosV = async (successCallback, errorCallback) => {
 
 
 export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/Ventas',
+  const options = { method: 'GET', url: `${baseURL}/Ventas`,
   headers: {Authorization: getToken(), }};
   await axios
     .request(options)
@@ -65,7 +66,7 @@ export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
   setEjecutarConsulta(false);
 };
 //export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
- // const options = { method: 'GET', url: 'http://localhost:5000/Ventas' };
+ // const options = { method: 'GET', url: '${baseURL}Ventas' };
  // await axios
  //   .request(options)
  //   .then(function (response) {
@@ -84,7 +85,7 @@ export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
 export const crearVenta = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
-    url: 'http://localhost:5000/Ventas/Nuevo',
+    url: `${baseURL}/Ventas/Nuevo`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
     data,
   };
@@ -95,7 +96,7 @@ export const crearVenta = async (data, successCallback, errorCallback) => {
 // CRUD PARA USUARIOS
 
 export const obtenerUsuariosV = async (successCallback, errorCallback) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/Usuarios',
+  const options = { method: 'GET', url: `${baseURL}/Usuarios`,
   headers: {
     Authorization: getToken(),
  } };
@@ -106,7 +107,7 @@ export const obtenerUsuariosV = async (successCallback, errorCallback) => {
 
 // get PARA USUARIOS
 export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/usuarios',
+  const options = { method: 'GET', url: `${baseURL}/usuarios`,
   headers: {
      Authorization: getToken(),
   } };
@@ -123,7 +124,7 @@ export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta) => {
 
 
 export const obtenerDatosUsuarios = async (successCallback, errorCallback) => {
-  const options = { method: 'GET', url: 'http://localhost:5000/usuarios/self',
+  const options = { method: 'GET', url: `${baseURL}/usuarios/self`,
   headers: {
     Authorization: getToken(),
  } };

@@ -11,6 +11,7 @@ const Productos = () => {
   const [productos, setProductos] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+  const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
 
   useEffect(() => {
     console.log('consulta', ejecutarConsulta);
@@ -143,7 +144,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: `http://localhost:5000/Productos/${producto._id}/`,
+      url: `${baseURL}/Productos/${producto._id}/`,
       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { ...infoNuevoProducto, id: producto._id },
     };
@@ -165,7 +166,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
   const eliminarProducto = async () => {
     const options = {
       method: 'DELETE',
-      url: `http://localhost:5000/Productos/${producto._id}/`,
+      url: `${baseURL}/Productos/${producto._id}/`,
       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { id: producto._id },
     };
@@ -318,7 +319,7 @@ const FormularioCreacionProductos = ({ setMostrarTabla, listaProductos, setProdu
 
     const options = {
       method: 'POST',
-      url: 'http://localhost:5000/Productos/Nuevo/',
+      url: `${baseURL}/Productos/Nuevo/`,
       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { codigo: nuevoProducto.codigo, descripcion: nuevoProducto.descripcion, valorunit: nuevoProducto.valorunit, estado:nuevoProducto.estado },
     

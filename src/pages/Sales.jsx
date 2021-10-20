@@ -11,6 +11,7 @@ const Ventas = () => {
   const [ventas, setVentas] = useState([]);
   const [textoBoton, setTextoBoton] = useState('Crear Nueva Venta');
   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+  const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
 
  // useEffect(() => {
   //  const fetchVtas = async () => {
@@ -173,7 +174,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: `http://localhost:5000/Ventas/${venta._id}/`,
+      url: `${baseURL}/Ventas/${venta._id}/`,
       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { ...infoNuevaVenta, id: venta._id },
     };
@@ -195,7 +196,7 @@ const FilaVenta = ({ venta, setEjecutarConsulta }) => {
   const eliminarVenta = async () => {
     const options = {
       method: 'DELETE',
-      url: `http://localhost:5000/Ventas/${venta._id}/`,
+      url: `${baseURL}/Ventas/${venta._id}/`,
       headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
       data: { id: venta._id },
     };

@@ -12,6 +12,7 @@ const Usuarios = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [textoBoton, setTextoBoton] = useState('Crear Nuevo Usuario');
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+    const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
 
     useEffect(() => {
         console.log('consulta', ejecutarConsulta);
@@ -142,7 +143,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
         //enviar la info al backend
         const options = {
             method: 'PATCH',
-            url: `http://localhost:5000/usuarios/${usuario._id}/`,
+            url: `${baseURL}/usuarios/${usuario._id}/`,
             headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { ...infoNuevoUsuario, id: usuario._id },
         };
@@ -164,7 +165,7 @@ const FilaUsuario = ({ usuario, setEjecutarConsulta }) => {
     const eliminarUsuario = async () => {
         const options = {
             method: 'DELETE',
-            url: `http://localhost:5000/usuarios/${usuario._id}/`,
+            url: `${baseURL}/usuarios/${usuario._id}/`,
             headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { id: usuario._id },
         };
@@ -325,7 +326,7 @@ const FormularioCreacionUsuarios = ({ setMostrarTabla, listaUsuarios, setUsuario
 
         const options = {
             method: 'POST',
-            url: 'http://localhost:5000/usuarios/nuevo/',
+            url: `${baseURL}/usuarios/nuevo/`,
             headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
             data: { name: nuevoUsuario.name, 
                     email:nuevoUsuario.email, 
