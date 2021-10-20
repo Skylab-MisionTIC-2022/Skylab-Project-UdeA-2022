@@ -1,145 +1,145 @@
-// import React, { useEffect, useState, useRef } from 'react';
-// import { ToastContainer, toast } from 'react-toastify';
-// import axios from 'axios';
-// import { nanoid } from 'nanoid';
-// import { Dialog, Tooltip } from '@material-ui/core';
-// import { obtenerProductos, getToken } from 'utils/api';
-// import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState, useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios';
+import { nanoid } from 'nanoid';
+import { Dialog, Tooltip } from '@material-ui/core';
+import { obtenerProductos, getToken } from 'utils/api';
+import 'react-toastify/dist/ReactToastify.css';
 
-// const baseURL = "https://pacific-retreat-26412.herokuapp.com";
+const baseURL = "https://pacific-retreat-26412.herokuapp.com";
 
-// const Productos = () => {
-//   const [mostrarTabla, setMostrarTabla] = useState(true);
-//   const [productos, setProductos] = useState([]);
-//   const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
-//   const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
+const Productos = () => {
+  const [mostrarTabla, setMostrarTabla] = useState(true);
+  const [productos, setProductos] = useState([]);
+  const [textoBoton, setTextoBoton] = useState('Crear Nuevo Producto');
+  const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
   
-//   useEffect(() => {
-//     console.log('consulta', ejecutarConsulta);
-//     if (ejecutarConsulta) {
-//       obtenerProductos(setProductos, setEjecutarConsulta);
+  useEffect(() => {
+    console.log('consulta', ejecutarConsulta);
+    if (ejecutarConsulta) {
+      obtenerProductos(setProductos, setEjecutarConsulta);
 
-//     }
-//   }, [ejecutarConsulta]);
+    }
+  }, [ejecutarConsulta]);
 
-//   useEffect(() => {
-//     //obtener lista de productos desde el backend
-//     if (mostrarTabla) {
-//       setEjecutarConsulta(true);
-//     }
-//   }, [mostrarTabla]);
+  useEffect(() => {
+    //obtener lista de productos desde el backend
+    if (mostrarTabla) {
+      setEjecutarConsulta(true);
+    }
+  }, [mostrarTabla]);
 
-//   useEffect(() => {
-//     if (mostrarTabla) {
-//       setTextoBoton('Crear Nuevo Producto');
+  useEffect(() => {
+    if (mostrarTabla) {
+      setTextoBoton('Crear Nuevo Producto');
       
-//     } else {
-//       setTextoBoton('Mostrar Todos los productos');
+    } else {
+      setTextoBoton('Mostrar Todos los productos');
       
-//     }
-//   }, [mostrarTabla]);
-//   return (
-//     <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
-//       <div className='flex flex-col w-full'>
+    }
+  }, [mostrarTabla]);
+  return (
+    <div className='flex h-full w-full flex-col items-center justify-start p-8 ml-64 '>
+      <div className='flex flex-col w-full'>
 
-//         <h2 className='text-3xl font-extrabold text-gray-900'>
-//              Administración de productos
-//         </h2>
+        <h2 className='text-3xl font-extrabold text-gray-900'>
+             Administración de productos
+        </h2>
 
-//         <button
-//           onClick={() => {
-//             setMostrarTabla(!mostrarTabla);
-//           }}
-//           className={`text-white p-2 rounded-full m-8  self-end buttonblue`}
-//         >
-//           {textoBoton}
-//         </button>
-//       </div>
-//       {mostrarTabla ? (
-//         <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
-//       ) : (
-//         <FormularioCreacionProductos
-//           setMostrarTabla={setMostrarTabla}
-//           listaProductos={productos}
-//           setProductos={setProductos}
-//         />
-//       )}
-//       <ToastContainer position='bottom-center' autoClose={5000} />
-//     </div>
-//   );
-// };
+        <button
+          onClick={() => {
+            setMostrarTabla(!mostrarTabla);
+          }}
+          className={`text-white p-2 rounded-full m-8  self-end buttonblue`}
+        >
+          {textoBoton}
+        </button>
+      </div>
+      {mostrarTabla ? (
+        <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
+      ) : (
+        <FormularioCreacionProductos
+          setMostrarTabla={setMostrarTabla}
+          listaProductos={productos}
+          setProductos={setProductos}
+        />
+      )}
+      <ToastContainer position='bottom-center' autoClose={5000} />
+    </div>
+  );
+};
 
-// const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
-//   const [busqueda, setBusqueda] = useState('');
-//   const [productosFiltrados, setProductosFiltrados] = useState(listaProductos);
+const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
+  const [busqueda, setBusqueda] = useState('');
+  const [productosFiltrados, setProductosFiltrados] = useState(listaProductos);
 
-//   useEffect(() => {
-//     setProductosFiltrados(
-//       listaProductos.filter((elemento) => {
-//         return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
-//       })
-//     );
-//   }, [busqueda, listaProductos]);
+  useEffect(() => {
+    setProductosFiltrados(
+      listaProductos.filter((elemento) => {
+        return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
+      })
+    );
+  }, [busqueda, listaProductos]);
 
-//   return (
-//     <div className='flex flex-col items-center justify-center w-full'>
-//       <input
-//         value={busqueda}
-//         onChange={(e) => setBusqueda(e.target.value)}
-//         placeholder='Buscar'
-//         className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-indigo-500'
-//       />
+  return (
+    <div className='flex flex-col items-center justify-center w-full'>
+      <input
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+        placeholder='Buscar'
+        className='border-2 border-gray-700 px-3 py-1 self-start rounded-md focus:outline-none focus:border-indigo-500'
+      />
       
-//       <div className='hidden md:flex w-full'>
-//         <table className='tabla'>
-//           <thead>
-//             <tr>
-//             <th>Codigo</th>
-//             <th>Descripcion</th>
-//             <th>Valor Unitario </th>
-//             <th>Estado</th>
-//             <th>Acciones</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {productosFiltrados.map((producto) => {
-//               return (
-//                 <FilaProducto
-//                   key={nanoid()}
-//                   producto={producto}
-//                   setEjecutarConsulta={setEjecutarConsulta}
-//                 />
-//               );
-//             })}
-//           </tbody>
-//         </table>
-//       </div>
-//       <div className='flex flex-col w-full m-2 md:hidden'>
-//         {productosFiltrados.map((el) => {
-//           return (
-//             <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
-//               <span>{el.codigo}</span>
-//               <span>{el.descripcion}</span>
-//               <span>{el.valorunit}</span>
-//               <span>{el.estado}</span>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// };
+      <div className='hidden md:flex w-full'>
+        <table className='tabla'>
+          <thead>
+            <tr>
+            <th>Codigo</th>
+            <th>Descripcion</th>
+            <th>Valor Unitario </th>
+            <th>Estado</th>
+            <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productosFiltrados.map((producto) => {
+              return (
+                <FilaProducto
+                  key={nanoid()}
+                  producto={producto}
+                  setEjecutarConsulta={setEjecutarConsulta}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <div className='flex flex-col w-full m-2 md:hidden'>
+        {productosFiltrados.map((el) => {
+          return (
+            <div className='bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
+              <span>{el.codigo}</span>
+              <span>{el.descripcion}</span>
+              <span>{el.valorunit}</span>
+              <span>{el.estado}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
-// const FilaProducto = ({ producto, setEjecutarConsulta }) => {
-//   const [edit, setEdit] = useState(false);
-//   const [openDialog, setOpenDialog] = useState(false);
-//   const [infoNuevoProducto, setInfoNuevoProducto] = useState({
-//     codigo: producto.codigo,
-//     descripcion: producto.descripcion,
-//     valorunit: producto.valorunit,
-//     estado: producto.estado,
+const FilaProducto = ({ producto, setEjecutarConsulta }) => {
+  const [edit, setEdit] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [infoNuevoProducto, setInfoNuevoProducto] = useState({
+    codigo: producto.codigo,
+    descripcion: producto.descripcion,
+    valorunit: producto.valorunit,
+    estado: producto.estado,
   
-//   });
+  });
 
 //   const actualizarProducto = async () => {
 //     //enviar la info al backend
@@ -407,18 +407,8 @@
 //       </form>
 //     </div>
 //   );
-// };
+};
 
-// export  default Productos
+export  default Productos
 
-import React from 'react'
 
-const Products = () => {
-  return (
-    <div>
-      Si funciona el codigo
-    </div>
-  )
-}
-
-export default Products
