@@ -5,6 +5,8 @@ import PrivateRoute from 'components/PrivateRoute';
 
 
 const PrivateLayout = ({ children }) => {
+
+    
     return (
         <div>
             <PrivateRoute> 
@@ -15,7 +17,7 @@ const PrivateLayout = ({ children }) => {
                         <main className="flex w-full ">{children}</main>
                     </div>
                 </div>
-                </PrivateRoute> 
+            </PrivateRoute> 
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import PrivateComponent from './PrivateComponent';
 
 import useActiveRoute from 'hooks/useActiveRoute';
 
@@ -18,9 +19,10 @@ const Sidebar = () => {
             <button   className="text-white">INICIO</button>
             </Link>
           </li>
-
+          
+          <PrivateComponent roleList={['Administrador']}>
           <li className="border-b-2  my-1"></li>
-
+         
           <li className=" mb-8">
             <div className="bg-white shadow-sm p-1 mr-3 rounded-lg float-left">
               <svg xmlns="http://www.w3.org/2000/svg" className=" h-6 w-6" fill="none" viewBox="0 0 24 24"  stroke="currentColor">
@@ -28,6 +30,7 @@ const Sidebar = () => {
                   d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
               </svg>
             </div>
+            
             <button className="text-white">USUARIOS</button>
             <div>
               <ul>
@@ -37,6 +40,7 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
+          </PrivateComponent>
 
           <li className="border-b-2  my-1"></li>
 

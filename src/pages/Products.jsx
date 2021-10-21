@@ -97,7 +97,9 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
             <th>Descripcion</th>
             <th>Valor Unitario </th>
             <th>Estado</th>
+            <PrivateComponent roleList={['Administrador']}>
             <th>Acciones</th>
+            </PrivateComponent>
             </tr>
           </thead>
           <tbody>
@@ -245,7 +247,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
        
         </>
       )}
-      <PrivateComponent roleList={['admin']}>
+      <PrivateComponent roleList={['Administrador']}>
       <td>
         <div className='flex w-full justify-around'>
           {edit ? (
