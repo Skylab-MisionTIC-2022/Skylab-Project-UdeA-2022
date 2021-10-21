@@ -27,7 +27,7 @@ const Navbar = () => {
         <button className="mx-4 " name="ayuda">
           ayuda
         </button>
-        <button className="w-14 text-blue-600 rounded-lg  border-2 border-blue-600 hover:border-gray-300 mx-4 p-2" name="perfil"
+        <button className="w-12 text-blue-600 rounded-lg  border-2 border-blue-600 hover:border-gray-300 mx-4 p-2" name="perfil"
         onClick={() => cerrarsesion()}>
          cerrar sesion
         </button>
