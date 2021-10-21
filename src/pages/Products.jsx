@@ -76,8 +76,8 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
 
   useEffect(() => {
     setProductosFiltrados(
-      listaProductos.filter((elemento) => {
-        return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
+      listaProductos.filter(({elemento}) => {
+        return JSON.stringify({elemento}).toLowerCase().includes(busqueda.toLowerCase());
       })
     );
   }, [busqueda, listaProductos]);
