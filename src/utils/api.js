@@ -4,7 +4,7 @@ export const getToken=()=>{
   return `Bearer ${localStorage.getItem('token')}`
 }
 
-const baseURL = 'https://pacific-retreat-26412.herokuapp.com';
+const baseURL = 'https:glacial-reaches-09776.herokuapp.com';
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   const options = { 
@@ -26,7 +26,7 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
 };
 
 // export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
-//   const options = { method: 'GET', url: `${baseURL}Ventas}`,
+//   const options = { method: 'GET', url: `${baseURL}/Ventas}`,
 //   headers: {
 //     Authorization: getToken(),
 //  } };
@@ -48,7 +48,7 @@ export const obtenerProductosV = async (successCallback, errorCallback) => {
 };
 
 //export const obtenerVentas = async (successCallback, errorCallback) => {
-//  const options = { method: 'GET', url: '${baseURL}Ventas/',
+//  const options = { method: 'GET', url: '${baseURL}/Ventas/',
 //  headers: {
 //    Authorization: getToken(),
 // } };
@@ -71,7 +71,7 @@ export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
   setEjecutarConsulta(false);
 };
 //export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
- // const options = { method: 'GET', url: '${baseURL}Ventas' };
+ // const options = { method: 'GET', url: '${baseURL}/Ventas' };
  // await axios
  //   .request(options)
  //   .then(function (response) {
