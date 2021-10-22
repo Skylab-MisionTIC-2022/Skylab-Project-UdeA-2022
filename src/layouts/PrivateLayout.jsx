@@ -1,10 +1,11 @@
-import React  from 'react';
+import React, { useEffect }  from 'react';
 import Navbar from 'components/Navbar'
 import Sidebar from 'components/Sidebar'
 import PrivateRoute from 'components/PrivateRoute';
 
 
 const PrivateLayout = ({ children }) => {
+
 
     
     return (
