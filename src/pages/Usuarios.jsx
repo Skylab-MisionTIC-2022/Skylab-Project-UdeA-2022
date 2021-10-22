@@ -72,13 +72,13 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta }) => {
     const [busqueda, setBusqueda] = useState('');
     const [usuariosFiltrados, setUsuariosFiltrados] = useState(listaUsuarios);
 
-  /*  useEffect(() => {
+    useEffect(() => {
         setUsuariosFiltrados(
             listaUsuarios.filter((elemento) => {
                 return JSON.stringify(elemento).toLowerCase().includes(busqueda.toLowerCase());
             })
         );
-    }, [busqueda, listaUsuarios]);*/
+    }, [busqueda, listaUsuarios]);
 
     return (
         <div className='flex flex-col items-center justify-center w-full'>

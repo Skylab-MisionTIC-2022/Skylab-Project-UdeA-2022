@@ -10,7 +10,7 @@ const Navbar = () => {
     localStorage.setItem('token',null);
   }
     return (
-      <div className="bg-gray-200 flex p-2 shadow-sm sticky top-0" >
+      <div className="bg-gray-200 flex p-1 shadow-sm sticky top-0" >
       <Link to="/Home">
         <img className="-ml-4" src={logo} />
       </Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
         <button className="mx-4 " name="ayuda">
           ayuda
         </button>
-        <button className="w-12 text-blue-600 rounded-lg  border-2 border-blue-600 hover:border-gray-300 mx-4 p-2" name="perfil"
+        <button className="w-14 text-blue-600 rounded-lg  border-2 border-blue-600 hover:border-gray-300 mx-4 p-2" name="perfil"
         onClick={() => cerrarsesion()}>
          cerrar sesion
         </button>
