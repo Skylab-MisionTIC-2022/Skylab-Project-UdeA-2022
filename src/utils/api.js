@@ -4,7 +4,7 @@ export const getToken=()=>{
   return `Bearer ${localStorage.getItem('token')}`
 }
 
-const baseURL = 'https:glacial-reaches-09776.herokuapp.com';
+const baseURL = ' https://glacial-reaches-09776.herokuapp.com';
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   const options = { 
