@@ -8,8 +8,6 @@ import PrivateLayout from 'layouts/PrivateLayout';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'css/styles.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-//import CrearVenta from 'pages/CrearVenta';
-//import EditarVenta from 'pages/EditarVenta';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { UserContext } from 'context/userContext';
 import PrivateRoute from 'components/PrivateRoute';
@@ -45,16 +43,6 @@ function App() {
             <Route path="/Sales" exact>
               <PrivateLayout>
                 <Sales />
-              </PrivateLayout>
-            </Route>
-            <Route path="/CrearVenta" exact>
-              <PrivateLayout>
-                <CrearVenta />
-              </PrivateLayout>
-            </Route>
-            <Route path="/EditarVenta" exact>
-              <PrivateLayout>
-                <EditarVenta />
               </PrivateLayout>
             </Route>
             <Index />
