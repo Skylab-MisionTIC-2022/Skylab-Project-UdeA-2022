@@ -4,7 +4,7 @@ export const getToken=()=>{
   return `Bearer ${localStorage.getItem('token')}`
 }
 
-const baseURL = ' https://glacial-reaches-09776.herokuapp.com';
+const baseURL = 'https://glacial-reaches-09776.herokuapp.com';
 
 export const obtenerProductos = async (setProductos, setEjecutarConsulta) => {
   const options = { 
@@ -90,7 +90,7 @@ export const obtenerVentas = async (setVentas, setEjecutarConsulta) => {
 export const crearVenta = async (data, successCallback, errorCallback) => {
   const options = {
     method: 'POST',
-    url: `${baseURL}/Ventas/Nuevo`,
+    url: `${baseURL}/Ventas/Nuevo/`,
     headers: { 'Content-Type': 'application/json', Authorization: getToken(),  },
     data,
   };

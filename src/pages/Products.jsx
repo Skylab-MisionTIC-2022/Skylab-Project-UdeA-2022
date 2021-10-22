@@ -46,7 +46,7 @@ if (!Array.prototype.filter){
   };
 }
 // const baseURL = "http://localhost:5000"
-const baseURL = "https://pacific-retreat-26412.herokuapp.com";
+const baseURL = 'https://glacial-reaches-09776.herokuapp.com';
 
 const Productos = () => {
   const [mostrarTabla, setMostrarTabla] = useState(true);
