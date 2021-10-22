@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
 import { obtenerProductos, getToken } from 'utils/api';
 import 'react-toastify/dist/ReactToastify.css';
+import PrivateComponent from 'components/PrivateComponent';
 
 
 if (!Array.prototype.filter){
@@ -138,7 +139,9 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
             <th>Descripcion</th>
             <th>Valor Unitario </th>
             <th>Estado</th>
+            <PrivateComponent roleList={['Administrador']}>
             <th>Acciones</th>
+            </PrivateComponent>
             </tr>
           </thead>
           <tbody>
@@ -286,6 +289,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
        
         </>
       )}
+      <PrivateComponent roleList={['Administrador']}>
       <td>
         <div className='flex w-full justify-around'>
           {edit ? (
@@ -342,6 +346,8 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
           </div>
         </Dialog>
       </td>
+      </PrivateComponent>
+
     </tr>
   );
 };

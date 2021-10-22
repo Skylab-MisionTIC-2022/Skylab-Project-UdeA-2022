@@ -1,44 +1,24 @@
+import { useUser } from 'context/userContext';
 import React from 'react'
-import { useAuth0, getAccessTokenSilently } from "@auth0/auth0-react";
-import { useEffect, useState, useRef } from 'react';
-import ReactLoading from 'react-loading';
-import { obtenerDatosUsuarios } from 'utils/api';
+import { Link } from 'react-router-dom'
 
-const PrivateRoute = (children) => {
-    const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
-    useEffect(() => {
-        const fetchAuth0token = async () => {
-            const access = await getAccessTokenSilently({
-                audience: 'api-autenticacion',
-            });
-            localStorage.setItem('token', access);
-            await obtenerDatosUsuarios((response) => {
-                console.log(response);
-            },(err)=>{
-                console.log(err);
-            }
+const PrivateRoute = ({ roleList, children }) => {
+    const { userData } = useUser();
+    console.log("user data en Private Componet", userData);
 
-            );
-            console.log(access);
-        }
-        if (isAuthenticated) {
-            fetchAuth0token();
-        }
-
-
-    }, [isAuthenticated, getAccessTokenSilently]);
-
-
-
-    if (isLoading) {
-        return (
-            <div class="flex justify-center">
-                <ReactLoading type={"cylon"} color={'#21507A'} height={'20%'} width={'20%'} />
-            </div>)
+    if (roleList.includes(userData.rol)){
+        return children; 
     }
+    return (
+        <div>
+            <div>No estás autorizado para ingresar a este sitio</div>
+            <Link to='Home'>
+            <button className={`text-white p-2 rounded-full m-8  self-end buttonblue`}>Volver al Home</button>
+            </Link>
+        </div>
 
-    return isAuthenticated ? <>{children.children} </> : <div>No estas autorizado</div>
+    )
+    
+};
 
-}
-
-export default PrivateRoute
+export default PrivateRoute;
