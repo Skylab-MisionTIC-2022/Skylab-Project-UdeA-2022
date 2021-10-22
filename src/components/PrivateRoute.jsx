@@ -1,49 +1,24 @@
-import React, { useEffect} from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
-import ReactLoading from 'react-loading';
-import { obtenerDatosUsuarios } from 'utils/api';
-import { useUser } from 'context/userContext'; 
+import { useUser } from 'context/userContext';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
+const PrivateRoute = ({ roleList, children }) => {
+    const { userData } = useUser();
+    console.log("user data en Private Componet", userData);
 
-const PrivateRoute = ({children}) => {
-
-    const { isAuthenticated, isLoading, getAccessTokenSilently, loginWithRedirect } = useAuth0(); 
-    const { setUserData } = useUser(); 
-
-    useEffect(() => {
-        const fetchAuth0token = async () => {
-            const access = await getAccessTokenSilently({
-                audience: 'api-autenticacion',
-            });
-            localStorage.setItem('token', access);
-            console.log(access);
-
-            await obtenerDatosUsuarios((response) => {
-                console.log("respuesta de obtener usuarios", response); 
-                setUserData(response.data);
-            },(err)=>{
-                console.log('error', err);
-            }
-
-            );   
-        };
-        if (isAuthenticated) {
-            fetchAuth0token();
-        }
-    }, [isAuthenticated, getAccessTokenSilently]);
-
-    if (isLoading) {
-        return (
-            <div class="flex justify-center">
-                <ReactLoading type={"cylon"} color={'#21507A'} height={'20%'} width={'20%'} />
-            </div>)
+    if (roleList.includes(userData.rol)){
+        return children; 
     }
-    if (!isAuthenticated) {
-        return loginWithRedirect();
-      }
-    return <>{children}</>;
-    // return isAuthenticated ? <>{children.children} </> : <div>No estas autorizado</div>
+    return (
+        <div>
+            <div>No estás autorizado para ingresar a este sitio</div>
+            <Link to='Home'>
+            <button className={`text-white p-2 rounded-full m-8  self-end buttonblue`}>Volver al Home</button>
+            </Link>
+        </div>
 
-}
+    )
+    
+};
 
 export default PrivateRoute;

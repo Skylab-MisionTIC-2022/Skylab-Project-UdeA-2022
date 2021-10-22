@@ -12,6 +12,7 @@ import CrearVenta from 'pages/CrearVenta';
 import EditarVenta from 'pages/EditarVenta';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { UserContext } from 'context/userContext';
+import PrivateRoute from 'components/PrivateRoute';
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -30,9 +31,11 @@ function App() {
               </PrivateLayout>
             </Route>
             <Route path="/usuarios" exact>
+            <PrivateRoute roleList={['Administrador']}>
               <PrivateLayout>
                 <Usuarios />
               </PrivateLayout>
+            </PrivateRoute>
             </Route>
             <Route path="/products" exact>
               <PrivateLayout>
