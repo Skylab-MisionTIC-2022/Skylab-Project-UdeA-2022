@@ -1,3 +1,4 @@
+import PrivateComponent from 'components/PrivateComponent';
 import React from 'react'
 
  const Home = () => {
@@ -10,13 +11,18 @@ import React from 'react'
          <h4 className="text-center font-bold text-blue-900  ">
            Sistema de Gestión de ventas
          </h4>
-         <p>
+         <p className="text-center p-3">
            Aquí podrás gestionar todo lo relacionado con tus pedidos y la
            administración de tus Productos.
          </p>
+         <PrivateComponent roleList='Administrador, Vendedor'>
          <p>
-         <span>Elige una opción a tu izquierda</span> 
+         <span className="text-center p-3">Elige una opción a tu izquierda</span> 
          </p>
+         </PrivateComponent>
+         <PrivateComponent roleList='Sin rol'>
+         <h4 className="text-center font-bold text-blue-600 p-11">Contata al administrador de la aplicación</h4>
+         </PrivateComponent>
        </div>
      </div>
    );

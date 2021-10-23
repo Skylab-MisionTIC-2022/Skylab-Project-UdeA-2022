@@ -41,7 +41,7 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
-          </PrivateComponent>
+          
 
           <li className="border-b-2  my-1"></li>
 
@@ -61,9 +61,9 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
-
+          </PrivateComponent>
           <li className="border-b-2  my-1"></li>
-
+          <PrivateComponent roleList={['Administrador', 'Vendedor']}>
           <li className="mb-8">
             <div className="bg-white shadow-sm p-1 mr-3 rounded-lg float-left">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,6 +82,7 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
+          </PrivateComponent>
         </ul>
       </div>
     );
