@@ -4,6 +4,7 @@ import PrivateComponent from './PrivateComponent';
 
 import useActiveRoute from 'hooks/useActiveRoute';
 
+
 const Sidebar = () => {
     return (
       <div className="flex h-screen p-4 border-r w-42   border-gray-200 backgroundBlue fixed ">
@@ -40,7 +41,7 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
-          </PrivateComponent>
+          
 
           <li className="border-b-2  my-1"></li>
 
@@ -60,7 +61,7 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
-
+          </PrivateComponent>
           <li className="border-b-2  my-1"></li>
 
           <li className="mb-8">
@@ -85,5 +86,29 @@ const Sidebar = () => {
       </div>
     );
 }
-
+const Ruta = ({ icono, ruta, nombre, usuario }) => {
+  console.log('Usuarios', usuario);
+  const isActive = useActiveRoute(ruta);
+  return (
+    <Link to={ruta}>
+      <button
+        className={`p-1 my-2  bg-${
+          isActive ? 'indigo' : 'gray'
+        }-700 hover:bg-indigo-900 flex w-full items-center text-white rounded-md`}
+      >
+        {usuario ? (
+          <>
+            
+            {usuario.name}
+          </>
+        ) : (
+          <>
+            <i className={`${icono} w-10`} />
+            {nombre}
+          </>
+        )}
+      </button>
+    </Link>
+  );
+};
 export default Sidebar
