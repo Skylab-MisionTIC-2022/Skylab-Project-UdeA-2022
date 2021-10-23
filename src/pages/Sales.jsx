@@ -582,6 +582,7 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
         if (ft.codigo === producto.codigo) {
           ft.cantidad = cantidad;
           ft.total = producto.valorunit * cantidad;
+          // ft.totalventa = producto.valorunit + producto.valorunit ;
         }
         
         return ft;
@@ -592,16 +593,18 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
 
   return (
     <div>
-      <div className='flex '>
-        <label className='flex flex-col' htmlFor='producto'>
+      <div className="flex ">
+        <label className="flex flex-col" htmlFor="producto">
           <select
-            className='p-2'
-            value={productoAAgregar.codigo ?? ''}
+            className="p-2"
+            value={productoAAgregar.codigo ?? ""}
             onChange={(e) =>
-              setProductoAAgregar(productos.filter((v) => v.codigo === e.target.value)[0])
+              setProductoAAgregar(
+                productos.filter((v) => v.codigo === e.target.value)[0]
+              )
             }
           >
-            <option disabled value=''>
+            <option disabled value="">
               Seleccione un Producto
             </option>
             {productos.map((el) => {
@@ -609,45 +612,52 @@ const TablaProductos = ({ productos, setProductos, setProductosTabla }) => {
                 <option
                   key={nanoid()}
                   value={el.codigo}
-                  >{`${el.descripcion} ${el.valorunit}  `}</option>
+                >{`${el.descripcion} ${el.valorunit}  `}</option>
               );
             })}
           </select>
         </label>
         <button
-          type='button'
+          type="button"
           onClick={() => agregarNuevoProducto()}
-          className='col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white'
+          className="col-span-2 bg-green-400 p-2 rounded-full shadow-md hover:bg-green-600 text-white"
         >
           Agregar Producto
         </button>
       </div>
-      <table className='tabla'>
+      <table className="tabla">
         <thead>
           <tr>
-          <th>IDProducto</th>
+            <th>IDProducto</th>
             <th>descripcion</th>
             <th>precio</th>
             <th>Cantidad</th>
             <th>valor Total Prod</th>
             <th>Eliminar</th>
-            <th className='hidden'>Input</th>
+            <th className="hidden">Input</th>
           </tr>
         </thead>
         <tbody>
           {filasTabla.map((el, index) => {
             return (
               <FilaProducto
-              key={el.codigo}
-              prod={el}
-              index={index}
-              eliminarProducto={eliminarProducto}
-              modificarProducto={modificarProducto}
-            />
-
+                key={el.codigo}
+                prod={el}
+                index={index}
+                eliminarProducto={eliminarProducto}
+                modificarProducto={modificarProducto}
+              />
             );
           })}
         </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3" className="text-center">
+              Valor Total Venta
+            </th>
+            <td colspan="2"  className="text-center">77</td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
