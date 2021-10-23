@@ -9,7 +9,7 @@ import { useUser } from 'context/userContext';
 
 const PrivateLayout = ({ children }) => {
 
-    const { isAuthenticated, isLoading, getAccessTokenSilently, loginWithRedirect } = useAuth0();
+    const { isAuthenticated, isLoading, getAccessTokenSilently, loginWithRedirect, logout} = useAuth0();
     const [loadingUserInformation, setLoadingUserInformation] = useState(false); 
     const { setUserData } = useUser(); 
 
@@ -29,6 +29,7 @@ const PrivateLayout = ({ children }) => {
             },(err)=>{
                 console.log('error', err);
                 setLoadingUserInformation(false);
+                logout({ returnTo: 'https://pacific-retreat-26412.herokuapp.com/' });
             }
 
             );   
