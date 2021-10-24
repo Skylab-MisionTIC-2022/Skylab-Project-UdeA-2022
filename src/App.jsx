@@ -29,14 +29,14 @@ function App() {
               </PrivateLayout>
             </Route>
             <Route path="/usuarios" exact>
-            <PrivateRoute roleList={['Administrador', 'sin rol']}>
+            <PrivateRoute roleList={['Administrador']}>
               <PrivateLayout>
                 <Usuarios />
               </PrivateLayout>
             </PrivateRoute>
             </Route>
             <Route path="/products" exact>
-            <PrivateRoute roleList={['Administrador','sin rol']}>
+            <PrivateRoute roleList={['Administrador']}>
               <PrivateLayout>
                 <Products />
               </PrivateLayout>
