@@ -21,7 +21,7 @@ import React from 'react'
          </p>
          </PrivateComponent>
          <PrivateComponent roleList='Sin rol'>
-         <h4 className="text-center font-bold text-blue-600 p-11">Contata al administrador de la aplicación</h4>
+         <h4 className="text-center font-bold text-blue-600 p-11">Contacta al administrador de la aplicación</h4>
          </PrivateComponent>
        </div>
      </div>
